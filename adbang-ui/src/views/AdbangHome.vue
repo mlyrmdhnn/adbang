@@ -1,7 +1,8 @@
 <script setup>
 import DropdownButton from '@/components/DropdownButton.vue'
+
 const apbd = [
-  { text: 'Master Data', link: '#' },
+  { text: 'Master Data', link: '/adbang' },
   { text: 'Mengisi Laporan', link: '#' },
   { text: 'Laporan Grafik', link: '#' },
   { text: 'Laporan Bulanan', link: '#' },
@@ -25,7 +26,8 @@ const prestasi = [
     <section class="content-header">
       <section class="house"><i class="bi bi-house-fill"></i></section>
       <section class="text">
-        <span class="text-1">Dashboard</span><span>Silahkan pilih menu di bawah ini</span>
+        <span class="text-1">Dashboard</span
+        ><span class="text-2">Silahkan pilih menu di bawah ini</span>
       </section>
     </section>
   </div>
@@ -34,38 +36,172 @@ const prestasi = [
       <DropdownButton
         class="border"
         title="Laporan APBD"
-        iconClass="fa fa-fw fa-file icon-gradient bg-warm-flame"
+        iconClass="fa fa-fw fa-file"
         :menuList="apbd"
       ></DropdownButton>
       <DropdownButton
         class="border"
         title="LKPJ"
-        iconClass="fa fa-fw fa-file-excel icon-gradient bg-happy-itmeo"
+        iconClass="fa fa-fw fa-file-excel"
         :menuList="lkpj"
       ></DropdownButton>
       <DropdownButton
         class="border"
         title="Data Kepegawaian"
-        iconClass="fa fa-fw fa-users icon-gradient bg-malibu-beach"
+        iconClass="fa fa-fw fa-users"
         :menuList="kepegawaian"
       ></DropdownButton>
       <DropdownButton
         class="border"
         title="Prestasi & Penghargaan"
-        iconClass="fa fa-fw fa-image icon-gradient bg-love-kiss"
+        iconClass="fa fa-fw fa-image"
         :menuList="prestasi"
       ></DropdownButton>
     </div>
   </div>
+  <div class="pengumuman">
+    <section class="header-pengumuman">
+      <i class="header-icon lnr-rocket icon-gradient bg-tempting-azure fa fa-bullhorn"></i>
+      <span class="pengumuman-tittle">PENGUMUMAN</span>
+    </section>
+    <section class="pengumuman-content">
+      <section class="pengumuman-content-tittle">
+        Penginputan untuk tahun 2024 telah dibuka.
+      </section>
+      <section class="text-pengumuman">
+        Setiap peringkat daerah dimohon untuk mengisi data data pada laporan APBD di setiap bulan
+        nya. Data yang diperlukan untuk penginputan laporan APBD yaitu Indikator , Kuantitas
+        Kinerja, dan Anggaran. Proses penginputan dianjurkan untuk mengisi secara teratur dari bulan
+        januari s/d desember untuk mempermudah pendataan data parsial.
+      </section>
+    </section>
+  </div>
 </template>
 
 <style scoped>
+.text-pengumuman {
+  /* border: 1px solid black; */
+  font-style: italic;
+  margin-top: 1rem;
+  color: rgb(58, 58, 58);
+}
+
+.pengumuman-content-tittle {
+  font-size: 1.3rem;
+  color: rgb(49, 49, 49);
+  /* border: 1px solid green; */
+}
+::v-deep(.fa-file) {
+  background: linear-gradient(45deg, #ff9a44, #ff3d00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+::v-deep(.fa-file-excel) {
+  background: linear-gradient(45deg, #42e695, #3bb2b8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+::v-deep(.fa-users) {
+  background: linear-gradient(45deg, #4facfe, #00f2fe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+::v-deep(.fa-image) {
+  background: linear-gradient(45deg, #ff758c, #ff7eb3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.pengumuman-content {
+  padding: 1.3rem;
+  /* border: 1px solid black; */
+}
+
+.pengumuman-tittle {
+  font-size: 1rem;
+  margin-left: 1.5rem;
+  font-weight: 600;
+}
+.pengumuman {
+  /* border: 1px solid black; */
+  width: 90%;
+  margin: auto;
+  margin-top: 2rem;
+  background-color: rgb(236, 236, 236);
+  border-radius: 20px;
+}
+
+.header-pengumuman {
+  /* border: 1px solid red; */
+  border-bottom: 1px solid rgb(219, 219, 219);
+  height: 3rem;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+.fa-bullhorn {
+  color: rgb(60, 189, 60);
+  /* border: 1px solid black; */
+  /* border-bottom: 1px solid gray; */
+  font-size: 1.5rem;
+  margin-left: 1rem;
+}
+@media (max-width: 768px) {
+  .header-pengumuman {
+    display: flex;
+    justify-content: center;
+  }
+  .fa-bullhorn {
+    display: none;
+  }
+
+  .house,
+  .bi-house-fill {
+    display: none !important;
+  }
+  .text-1,
+  .text-2 {
+    transform: translate(7rem);
+  }
+  .text-1 {
+    font-size: 0.5rem;
+  }
+  .text-2 {
+    transform: translate(4rem);
+    font-size: 1rem;
+    /* border: 1px solid black; */
+    width: 100%;
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Default 2 kolom */
+  gap: 20px;
+  width: 100%;
+}
+
 .border {
-  background-color: rgb(199, 194, 194);
+  background-color: #413f58;
   border-radius: 10px;
+  transition: background-color 0.2s ease-in-out;
 }
 .border:hover {
-  background-color: blue;
+  background-color: #75709b;
 }
 .container {
   display: flex;
@@ -76,9 +212,9 @@ const prestasi = [
 .grid-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* 2 kolom */
-  grid-template-rows: repeat(2, 1fr); /* 2 baris */
+  /* grid-template-rows: repeat(2, 1fr); */
   gap: 20px; /* Jarak antar tombol */
-  width: 80%; /* Ubah sesuai kebutuhan */
+  width: 100%; /* Ubah sesuai kebutuhan */
 }
 
 .grid-container button {
@@ -89,7 +225,7 @@ const prestasi = [
 }
 
 .main-content {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   flex-wrap: wrap;
 }
 
@@ -101,7 +237,7 @@ const prestasi = [
   height: 3rem;
   width: 3rem;
   margin-left: 3rem;
-  background-color: gray;
+  background-color: rgb(255, 255, 255);
   border-radius: 5px;
 }
 

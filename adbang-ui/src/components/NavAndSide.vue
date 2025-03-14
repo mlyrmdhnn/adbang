@@ -111,7 +111,7 @@ li {
 }
 
 .dropdown-menu {
-  background-color: #343a40 !important;
+  background-color: #324e6b !important;
   border: none;
   /* transition: opacity 0.5s ease; */
 }

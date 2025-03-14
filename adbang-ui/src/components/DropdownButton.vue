@@ -1,5 +1,5 @@
 <template>
-  <div class="dropdown d-inline-block w-100">
+  <div class="dropdown w-100 d-flex flex-column">
     <button
       type="button"
       class="font-icon-wrapper dropdown-toggle btn btn-focus w-100"
@@ -11,11 +11,11 @@
       <i :class="iconClass" style="font-size: 2rem"></i>
       <!-- Dynamic icon -->
       <br />
-      {{ title }}
+      <span class="tittle">{{ title }}</span>
     </button>
     <ul class="dropdown-menu w-100">
       <li v-for="(item, index) in menuList" :key="index">
-        <a :href="item.link" class="dropdown-item">{{ item.text }}</a>
+        <RouterLink :to="item.link" class="dropdown-item">{{ item.text }}</RouterLink>
       </li>
     </ul>
   </div>
@@ -23,12 +23,17 @@
 
 <script setup>
 import { defineProps } from 'vue'
+import { RouterLink } from 'vue-router'
 
-const props = defineProps({
-  title: String, // Judul button dropdown
-  iconClass: String, // Kelas ikon (FontAwesome)
-  menuList: Array, // Daftar menu dropdown
+defineProps({
+  title: String,
+  iconClass: String,
+  menuList: Array,
 })
 </script>
 
-<style scoped></style>
+<style scoped>
+.tittle {
+  color: white;
+}
+</style>
