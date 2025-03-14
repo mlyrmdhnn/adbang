@@ -22,63 +22,99 @@ const prestasi = [
 </script>
 <template>
   <NavAndSide></NavAndSide>
-  <div class="content">
-    <section class="content-header">
-      <section class="house"><i class="bi bi-house-fill"></i></section>
-      <section class="text">
-        <span class="text-1">Dashboard</span
-        ><span class="text-2">Silahkan pilih menu di bawah ini</span>
+  <div class="content-container">
+    <div class="content">
+      <section class="content-header">
+        <section class="house"><i class="bi bi-house-fill"></i></section>
+        <section class="text">
+          <span class="text-1">Dashboard</span
+          ><span class="text-2">Silahkan pilih menu di bawah ini</span>
+        </section>
       </section>
-    </section>
-  </div>
-  <div class="container mt-4">
-    <div class="grid-container">
-      <DropdownButton
-        class="border"
-        title="Laporan APBD"
-        iconClass="fa fa-fw fa-file"
-        :menuList="apbd"
-      ></DropdownButton>
-      <DropdownButton
-        class="border"
-        title="LKPJ"
-        iconClass="fa fa-fw fa-file-excel"
-        :menuList="lkpj"
-      ></DropdownButton>
-      <DropdownButton
-        class="border"
-        title="Data Kepegawaian"
-        iconClass="fa fa-fw fa-users"
-        :menuList="kepegawaian"
-      ></DropdownButton>
-      <DropdownButton
-        class="border"
-        title="Prestasi & Penghargaan"
-        iconClass="fa fa-fw fa-image"
-        :menuList="prestasi"
-      ></DropdownButton>
     </div>
-  </div>
-  <div class="pengumuman">
-    <section class="header-pengumuman">
-      <i class="header-icon lnr-rocket icon-gradient bg-tempting-azure fa fa-bullhorn"></i>
-      <span class="pengumuman-tittle">PENGUMUMAN</span>
-    </section>
-    <section class="pengumuman-content">
-      <section class="pengumuman-content-tittle">
-        Penginputan untuk tahun 2024 telah dibuka.
+
+    <div class="container button-content mt-4">
+      <div class="grid-container">
+        <DropdownButton
+          class="border"
+          title="Laporan APBD"
+          iconClass="fa fa-fw fa-file"
+          :menuList="apbd"
+        ></DropdownButton>
+        <DropdownButton
+          class="border"
+          title="LKPJ"
+          iconClass="fa fa-fw fa-file-excel"
+          :menuList="lkpj"
+        ></DropdownButton>
+        <DropdownButton
+          class="border"
+          title="Data Kepegawaian"
+          iconClass="fa fa-fw fa-users"
+          :menuList="kepegawaian"
+        ></DropdownButton>
+        <DropdownButton
+          class="border"
+          title="Prestasi & Penghargaan"
+          iconClass="fa fa-fw fa-image"
+          :menuList="prestasi"
+        ></DropdownButton>
+      </div>
+    </div>
+    <div class="pengumuman">
+      <section class="header-pengumuman">
+        <i class="header-icon lnr-rocket icon-gradient bg-tempting-azure fa fa-bullhorn"></i>
+        <span class="pengumuman-tittle">PENGUMUMAN</span>
       </section>
-      <section class="text-pengumuman">
-        Setiap peringkat daerah dimohon untuk mengisi data data pada laporan APBD di setiap bulan
-        nya. Data yang diperlukan untuk penginputan laporan APBD yaitu Indikator , Kuantitas
-        Kinerja, dan Anggaran. Proses penginputan dianjurkan untuk mengisi secara teratur dari bulan
-        januari s/d desember untuk mempermudah pendataan data parsial.
+      <section class="pengumuman-content">
+        <section class="pengumuman-content-tittle">
+          Penginputan untuk tahun 2024 telah dibuka.
+        </section>
+        <section class="text-pengumuman">
+          Setiap peringkat daerah dimohon untuk mengisi data data pada laporan APBD di setiap bulan
+          nya. Data yang diperlukan untuk penginputan laporan APBD yaitu Indikator , Kuantitas
+          Kinerja, dan Anggaran. Proses penginputan dianjurkan untuk mengisi secara teratur dari
+          bulan januari s/d desember untuk mempermudah pendataan data parsial.
+        </section>
       </section>
-    </section>
+    </div>
+    <div class="footer">
+      <span class="app">APP</span>
+      <span class="version">version 1.0</span>
+    </div>
   </div>
 </template>
 
 <style scoped>
+.app {
+  cursor: pointer;
+  border-bottom: 1px solid blue;
+  color: blue;
+}
+.footer {
+  /* border: 1px solid black; */
+  background-color: white;
+  /* margin-top: 2rem; */
+  transform: translateY(3.2rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem 0 2rem;
+  height: 3rem;
+}
+.version {
+  background-color: rgb(68, 177, 68);
+  border-radius: 5%;
+  padding: 5px;
+}
+.content-container {
+  background-image: url('/public/image/gedung.png');
+  background-position: bottom;
+  background-size: 100vw 100vh;
+  background-repeat: no-repeat;
+  background-color: rgba(255, 255, 255, 0.6); /* Lapisan putih transparan */
+  background-blend-mode: lighten;
+}
 .text-pengumuman {
   /* border: 1px solid black; */
   font-style: italic;
@@ -147,7 +183,10 @@ const prestasi = [
   align-items: center;
 }
 .fa-bullhorn {
-  color: rgb(60, 189, 60);
+  background: linear-gradient(45deg, #42e695, #3bb2b8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
   /* border: 1px solid black; */
   /* border-bottom: 1px solid gray; */
   font-size: 1.5rem;
@@ -179,6 +218,9 @@ const prestasi = [
     /* border: 1px solid black; */
     width: 100%;
   }
+  .footer {
+    transform: translateY(1rem);
+  }
 }
 
 .container {
@@ -189,6 +231,7 @@ const prestasi = [
 }
 
 .grid-container {
+  margin-top: 2rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* Default 2 kolom */
   gap: 20px;
@@ -264,7 +307,9 @@ const prestasi = [
   display: flex;
   /* justify-content: center; */
   align-items: center;
-  background-color: rgb(230, 230, 230);
+  /* background-color: rgb(230, 230, 230); */
+  background-color: rgba(213, 210, 247, 0.4); /* Lapisan putih transparan */
+  background-blend-mode: lighten;
   height: 5rem;
 }
 </style>
