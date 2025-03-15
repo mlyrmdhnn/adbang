@@ -80,7 +80,7 @@ const prestasi = [
     </div>
     <div class="footer">
       <span class="app">APP</span>
-      <span class="version">version 1.0</span>
+      <span class="version">version 2.0</span>
     </div>
   </div>
 </template>
@@ -92,9 +92,7 @@ const prestasi = [
   color: blue;
 }
 .footer {
-  /* border: 1px solid black; */
   background-color: white;
-  /* margin-top: 2rem; */
   transform: translateY(3.2rem);
   display: flex;
   align-items: center;
@@ -103,20 +101,20 @@ const prestasi = [
   height: 3rem;
 }
 .version {
-  background-color: rgb(68, 177, 68);
+  background-color: rgb(92, 223, 92);
   border-radius: 5%;
   padding: 5px;
+  color: white;
 }
 .content-container {
   background-image: url('/public/image/gedung.png');
   background-position: bottom;
   background-size: 100vw 100vh;
   background-repeat: no-repeat;
-  background-color: rgba(255, 255, 255, 0.6); /* Lapisan putih transparan */
+  background-color: rgba(255, 255, 255, 0.6);
   background-blend-mode: lighten;
 }
 .text-pengumuman {
-  /* border: 1px solid black; */
   font-style: italic;
   margin-top: 1rem;
   color: rgb(58, 58, 58);
@@ -125,7 +123,6 @@ const prestasi = [
 .pengumuman-content-tittle {
   font-size: 1.3rem;
   color: rgb(49, 49, 49);
-  /* border: 1px solid green; */
 }
 ::v-deep(.fa-file) {
   background: linear-gradient(45deg, #ff9a44, #ff3d00);
@@ -157,7 +154,6 @@ const prestasi = [
 
 .pengumuman-content {
   padding: 1.3rem;
-  /* border: 1px solid black; */
 }
 
 .pengumuman-tittle {
@@ -166,7 +162,6 @@ const prestasi = [
   font-weight: 600;
 }
 .pengumuman {
-  /* border: 1px solid black; */
   width: 90%;
   margin: auto;
   margin-top: 2rem;
@@ -175,11 +170,9 @@ const prestasi = [
 }
 
 .header-pengumuman {
-  /* border: 1px solid red; */
   border-bottom: 1px solid rgb(219, 219, 219);
   height: 3rem;
   display: flex;
-  /* justify-content: center; */
   align-items: center;
 }
 .fa-bullhorn {
@@ -187,8 +180,6 @@ const prestasi = [
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
-  /* border: 1px solid black; */
-  /* border-bottom: 1px solid gray; */
   font-size: 1.5rem;
   margin-left: 1rem;
 }
@@ -215,7 +206,6 @@ const prestasi = [
   .text-2 {
     transform: translate(4rem);
     font-size: 1rem;
-    /* border: 1px solid black; */
     width: 100%;
   }
   .footer {
@@ -233,7 +223,7 @@ const prestasi = [
 .grid-container {
   margin-top: 2rem;
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Default 2 kolom */
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   width: 100%;
 }
@@ -248,27 +238,25 @@ const prestasi = [
 }
 .container {
   display: flex;
-  justify-content: center; /* Agar tombol tetap di tengah */
+  justify-content: center;
   align-items: center;
 }
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 kolom */
-  /* grid-template-rows: repeat(2, 1fr); */
-  gap: 20px; /* Jarak antar tombol */
-  width: 100%; /* Ubah sesuai kebutuhan */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  width: 100%;
 }
 
 .grid-container button {
-  height: 100%; /* Supaya semua button mengisi area grid */
+  height: 100%;
 }
 .text-1 {
   font-size: 1.4rem;
 }
 
 .main-content {
-  /* border: 1px solid black; */
   flex-wrap: wrap;
 }
 
@@ -276,7 +264,6 @@ const prestasi = [
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: red; */
   height: 3rem;
   width: 3rem;
   margin-left: 3rem;
@@ -298,17 +285,13 @@ const prestasi = [
 
 .content {
   display: flex;
-  /* border: 1px solid black; */
 }
 
 .content-header {
   width: 100vw;
-  /* border: 1px solid red; */
   display: flex;
-  /* justify-content: center; */
   align-items: center;
-  /* background-color: rgb(230, 230, 230); */
-  background-color: rgba(213, 210, 247, 0.4); /* Lapisan putih transparan */
+  background-color: rgba(213, 210, 247, 0.4);
   background-blend-mode: lighten;
   height: 5rem;
 }
