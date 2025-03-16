@@ -1,176 +1,240 @@
-<script setup></script>
+<script setup>
+import { ref, onMounted, onUnmounted } from 'vue'
+import { RouterLink } from 'vue-router'
+
+const menus = ref([
+  {
+    title: 'Dashboard',
+    icon: 'fa fa-home',
+    items: [
+      { text: 'Dashboard', to: '/adbang/home' },
+      { text: 'Belanja Daerah', to: '/adbang/home/belanja' },
+      { text: 'Pendapatan Daerah', to: '/adbang/home/pendapatan' },
+    ],
+  },
+  {
+    title: 'Laporan APBD',
+    icon: 'fa fa-file',
+    items: [
+      { text: 'Master Data', to: '/adbang/apbd/data' },
+      { text: 'Anggaran Kas', to: '/adbang/apbd/kas' },
+      { text: 'Mengisi Laporan', to: '/adbang/apbd/isi' },
+      { text: 'Laporan Bulanan', to: '/adbang/apbd/report' },
+      { text: 'Grafik', to: '/adbang/apbd/graph' },
+    ],
+  },
+  {
+    title: 'LKPJ',
+    icon: 'fa fa-clipboard',
+    items: [
+      { text: 'Kebijakan Strategis', to: '/adbang/lkpj/kebijakan' },
+      { text: 'Tindak Lanjut Rekomendasi', to: '/adbang/lkpj/tindaklanjut' },
+    ],
+  },
+  {
+    title: 'Data Kepegawaian',
+    icon: 'fa fa-users',
+    items: [
+      { text: 'Data ASN', to: '/adbang/data/dataasn' },
+      { text: 'Data Non ASN', to: '/adbang/data/datanonasn' },
+    ],
+  },
+  {
+    title: 'Prestasi & Penghargaan',
+    icon: 'fa fa-image',
+    items: [
+      { text: 'Data Prestasi', to: '/adbang/prestasi/data-prestasi' },
+      { text: 'Data Penghargaan', to: '/adbang/prestasi/data-penghargaan' },
+      { text: 'Laporan ( Output )', to: '/adbang/prestasi/output' },
+    ],
+  },
+])
+
+const isSidebarExpanded = ref(false)
+const activeDropdown = ref(null)
+const isMobile = ref(window.innerWidth <= 768)
+
+const toggleDropdown = (index) => {
+  activeDropdown.value = activeDropdown.value === index ? null : index
+}
+
+const toggleSidebar = () => {
+  if (isMobile.value) {
+    isSidebarExpanded.value = !isSidebarExpanded.value
+  }
+}
+
+const updateScreenSize = () => {
+  isMobile.value = window.innerWidth <= 768
+  if (isMobile.value) {
+    isSidebarExpanded.value = false
+  }
+}
+
+onMounted(() => {
+  window.addEventListener('resize', updateScreenSize)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', updateScreenSize)
+})
+</script>
+
 <template>
-  <nav>
-    <div class="card">
-      <div class="card-header">
-        <button
-          class="btn hamburger"
-          type="button"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#sidebarMenu"
-        >
-          ☰
-        </button>
-        <section><span class="name">Mulya</span><br /><span class="role">Admin</span></section>
-      </div>
-    </div>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <button @click="toggleSidebar" class="hamburger">☰</button>
   </nav>
-  <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="sidebarMenu">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title">Menu</h5>
-      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
-    </div>
-    <div class="offcanvas-body">
-      <ul class="list-group">
-        <span class="dropdown-toggle" data-bs-toggle="dropdown">
-          <i class="bi bi-house"></i> Home
-        </span>
-        <ul class="dropdown-menu">
-          <li><router-link class="dropdown-item" to="">Dashboard</router-link></li>
-          <li><hr class="dropdown-divider" /></li>
-          <li><router-link class="dropdown-item" to="">Belanja Daerah</router-link></li>
-          <li><hr class="dropdown-divider" /></li>
-          <li><router-link class="dropdown-item" to="">Pendapatan Daerah</router-link></li>
-        </ul>
-      </ul>
-      <ul class="list-group">
-        <span class="dropdown-toggle" data-bs-toggle="dropdown">
-          <i class="bi bi-file-earmark"></i> Laporan APBD
-        </span>
-        <ul class="dropdown-menu">
-          <li><router-link class="dropdown-item" to="">Master Data</router-link></li>
-          <li><hr class="dropdown-divider" /></li>
-          <li><router-link class="dropdown-item" to="">Anggaran Kas</router-link></li>
-          <li><hr class="dropdown-divider" /></li>
-          <li><router-link class="dropdown-item" to="">Mengisi Laporan</router-link></li>
-          <li><hr class="dropdown-divider" /></li>
-          <li><router-link class="dropdown-item" to="">Laporan Bulanan</router-link></li>
-          <li><hr class="dropdown-divider" /></li>
-          <li><router-link class="dropdown-item" to="">Grafik</router-link></li>
-        </ul>
-      </ul>
-      <ul class="list-group">
-        <span class="dropdown-toggle" data-bs-toggle="dropdown">
-          <i class="bi bi-file-earmark-text"></i> LKPJ
-        </span>
-        <ul class="dropdown-menu">
-          <li><router-link class="dropdown-item" to="">Kebijaksanaan Strategis</router-link></li>
-          <li><hr class="dropdown-divider" /></li>
-          <li><router-link class="dropdown-item" to="">Tindak Lanjut Rekomendasi</router-link></li>
-        </ul>
-      </ul>
-      <ul class="list-group">
-        <span class="dropdown-toggle" data-bs-toggle="dropdown">
-          <i class="bi bi-person-lines-fill"></i> Data Kepegawaian
-        </span>
-        <ul class="dropdown-menu">
-          <li><router-link class="dropdown-item" to="">Data ASN</router-link></li>
-          <li><hr class="dropdown-divider" /></li>
-          <li><router-link class="dropdown-item" to="">Data Non ASN</router-link></li>
-        </ul>
-      </ul>
-      <ul class="list-group">
-        <span class="dropdown-toggle" data-bs-toggle="dropdown">
-          <i class="bi bi-trophy-fill"></i> Prestasi Penghargaan
-        </span>
-        <ul class="dropdown-menu">
-          <li><router-link class="dropdown-item" to="">Data Prestasi</router-link></li>
-          <li><hr class="dropdown-divider" /></li>
-          <li><router-link class="dropdown-item" to="">Data Penghargaan</router-link></li>
-          <li><hr class="dropdown-divider" /></li>
-          <li><router-link class="dropdown-item" to="">Laporan ( Output )</router-link></li>
-        </ul>
-      </ul>
-    </div>
-  </div>
+
+  <!-- Sidebar -->
+  <aside
+    :class="['sidebar', { expanded: isSidebarExpanded, mobile: isMobile }]"
+    @mouseover="!isMobile && (isSidebarExpanded = true)"
+    @mouseleave="!isMobile && (isSidebarExpanded = false)"
+  >
+    <ul class="menu">
+      <li v-for="(menu, index) in menus" :key="index">
+        <div class="menu-header" @click="toggleDropdown(index)">
+          <i :class="menu.icon" class="menuIcon"></i>
+          <span v-if="isSidebarExpanded" class="titleItem">{{ menu.title }}</span>
+        </div>
+        <transition name="dropdown">
+          <ul v-if="activeDropdown === index && isSidebarExpanded" class="submenu">
+            <li v-for="(item, i) in menu.items" :key="i">
+              <router-link :to="item.to">{{ item.text }}</router-link>
+            </li>
+          </ul>
+        </transition>
+      </li>
+    </ul>
+  </aside>
 </template>
+
 <style scoped>
-.bi-house,
-.bi-file-earmark,
-.bi-file-earmark-text,
-.bi-person-lines-fill,
-.bi-trophy-fill {
-  color: gray;
-  font-size: 2rem;
+.menuIcon {
+  transform: translateY(1rem);
+}
+.titleItem {
+  animation: titleItemAnimation 0.3s ease;
 }
 
-.hamburger {
-  font-size: 1.5rem;
+@keyframes titleItemAnimation {
+  0% {
+    opacity: 0;
+    transform: translate(-2rem);
+  }
+  50% {
+    opacity: 0;
+    transform: translate(-2rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0rem);
+  }
 }
-
-.name,
-.role,
-.hamburger {
-  color: white;
-}
-
-li {
-  background-color: transparent !important;
-  padding: 0;
-  margin-left: 1rem;
-}
-
-.dropdown-menu {
-  background-color: #324e6b !important;
-  border: none;
-  /* transition: opacity 0.5s ease; */
-}
-
-.dropdown-item {
-  background-color: transparent !important;
-  width: 100%;
-  display: block;
-  padding: 10px 15px;
-  color: white; /* Ubah warna teks jika perlu */
-  transition:
-    background-color 0.2s ease-in-out,
-    transform 0.2s ease-in-out;
-}
-
-.dropdown-item:hover,
-.dropdown-item:focus {
-  background-color: rgba(255, 255, 255, 0.1) !important; /* Warna hover */
-  transform: scale(1.05);
-}
-
-.dropdown-toggle {
-  margin-top: 1rem;
-  /* border: 1px solid black; */
-  width: max-content;
-  cursor: pointer;
-}
-
-.offcanvas {
-  transition: transform 0.2s ease-in-out;
-  width: 300px;
-}
-
-.card {
+/* Navbar */
+.navbar {
+  height: 50px;
+  background-color: #365677;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
-  background: linear-gradient(to right, #6b53c0, #264d79);
-}
-
-.card-header {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
+  padding: 0 20px;
+  color: rgb(255, 0, 0);
 }
 
-nav {
-  background: linear-gradient(to right, #6b53c0, #264d79);
-}
-
-.name {
-  font-weight: 600;
+.hamburger {
+  background: none;
+  border: none;
+  color: rgb(77, 43, 43);
+  font-size: 24px;
   cursor: pointer;
 }
 
-.role {
-  font-size: 90%;
+/* Sidebar */
+.sidebar {
+  width: 60px;
+  height: 100vh;
+  background-color: #e0e0e0;
+  color: rgb(61, 61, 61);
+  position: fixed;
+  transition: width 0.3s;
+  overflow: hidden;
+  z-index: 10;
 }
 
-.link {
-  color: inherit;
+.sidebar.expanded {
+  width: 200px;
+}
+
+.sidebar.mobile {
+  left: -200px;
+  transition: left 0.3s ease-in-out;
+}
+
+.sidebar.mobile.expanded {
+  left: 0;
+}
+
+/* Menu */
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-header {
+  display: flex;
+  /* align-items: center; */
+  gap: 10px;
+  /* justify-content: space-between; */
+  padding: 15px;
+  cursor: pointer;
+}
+
+.menu-header:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+}
+
+/* ✅ ANIMASI DROPDOWN */
+.dropdown-enter-active,
+.dropdown-leave-active {
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.dropdown-enter-from,
+.dropdown-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+/* Submenu */
+.submenu {
+  list-style: none;
+  padding-left: 20px;
+  overflow: hidden;
+}
+
+.submenu li {
+  padding: 10px;
+}
+
+.submenu li a {
   text-decoration: none;
+  color: rgb(61, 55, 55);
+}
+
+.submenu li a:hover {
+  text-decoration: underline;
+}
+
+/* ✅ Mobile: Hide icon on hover */
+@media (max-width: 768px) {
+  .menu-header:hover i {
+    display: none;
+  }
 }
 </style>

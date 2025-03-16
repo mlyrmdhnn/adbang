@@ -1,13 +1,14 @@
-import { createApp } from 'vue';
-import App from './App.vue';
-import router from './router';
+import { createApp } from 'vue'
+import App from './App.vue'
+import router from './router'
 import './assets/main.css'
-import NavAndSide from './components/NavAndSide.vue';
+import NavAndSide from './components/NavAndSide.vue'
 
-
-const app = createApp(App);
+const app = createApp(App)
 
 app.component('NavAndSide', NavAndSide)
-
-app.use(router);
-app.mount('#app');
+if (import.meta.env.PROD) {
+  app.config.devtools = false
+}
+app.use(router)
+app.mount('#app')
