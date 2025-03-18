@@ -71,13 +71,17 @@ const handleLogin = () => {
         placeholder="Password "
         required
       />
-      <br/>
+      <br />
       <button type="submit" class="login-btn">Login</button>
       <p class="incorect-text hide">Incorect Password or Username</p>
       <p class="info">Sekretariat Daerah Kabupaten Bogor 2025</p>
       <section class="icon">
-        <section class="facebook"><a href=""><i class="bi bi-facebook"></i></a></section>
-        <section class="twitter"><a href=""><i class="bi bi-twitter"></i></a></section>
+        <section class="facebook">
+          <a href=""><i class="bi bi-facebook"></i></a>
+        </section>
+        <section class="twitter">
+          <a href=""><i class="bi bi-twitter"></i></a>
+        </section>
       </section>
     </form>
     <section class="image">
@@ -92,27 +96,26 @@ const handleLogin = () => {
 </template>
 
 <style scoped>
-a{
+a {
   color: inherit;
 }
 
-
-.facebook{
+.facebook {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 2.5rem;
   height: 2.5rem;
 }
-.bi-facebook{
-  color: #1877F2;
+.bi-facebook {
+  color: #1877f2;
   font-size: 2.5rem;
 }
-.icon{
+.icon {
   display: flex;
   font-size: 2rem;
 }
-.twitter{
+.twitter {
   border-radius: 50%;
   /* padding: 5px; */
   width: 2.5rem;
@@ -123,7 +126,7 @@ a{
   /* border: 1px solid red; */
   /* color: white; */
   color: white;
-  background-color: #1DA1F2;
+  background-color: #1da1f2;
   margin-left: 0.5rem;
 }
 .login-container {

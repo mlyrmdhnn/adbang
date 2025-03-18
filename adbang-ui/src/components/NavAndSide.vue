@@ -237,4 +237,9 @@ onUnmounted(() => {
     display: none;
   }
 }
+@media (max-width: 1000px) {
+  .menu-header:hover i {
+    display: none;
+  }
+}
 </style>
