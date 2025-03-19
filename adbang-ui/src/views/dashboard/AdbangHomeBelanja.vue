@@ -1,4 +1,7 @@
-<script setup></script>
+<script setup>
+import HighChart from '@/components/HighChart.vue'
+import LineChart from '@/components/LineChart.vue'
+</script>
 <template>
   <NavAndSide></NavAndSide>
   <div class="content">
@@ -81,10 +84,33 @@
           </div>
         </div>
       </div>
+      <div class="chart-header">
+        <i class="fa fa-fax"></i>REALISASI CAPAIAN KINERJA ( KABUPATEN BOGOR )
+      </div>
+      <div style="display: flex" class=""><HighChart></HighChart><LineChart></LineChart></div>
+      <div class="mb-3 card">
+        <div class="chart-header">
+          <i class="fa fa-fax"></i>DEVIASI ANGGARAN KAS (KABUPATEN BOGOR )
+        </div>
+        <div class="chart-table"></div>
+      </div>
     </div>
   </div>
 </template>
 <style scoped>
+.fa-fax {
+  margin-left: 2rem;
+  margin-right: 2rem;
+  font-size: 1.8rem;
+}
+.chart-header {
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 700;
+  color: rgb(107, 107, 107);
+}
 .i-1 {
   background: linear-gradient(135deg, #a18cd1, #fbc2eb);
   color: white;
@@ -116,16 +142,10 @@
   font-weight: 650;
   color: rgb(255, 255, 255);
 }
-/* .widget-content {
-  background-color: green;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
+
 .content {
   border: 1px solid black;
-  margin-left: 3rem;
-  /* min-width: vw; */
+  margin-left: 3.8rem;
 }
 .content-header {
   width: 100%;

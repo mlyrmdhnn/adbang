@@ -1,2 +1,4 @@
 <script setup></script>
-<template><NavAndSide></NavAndSide></template>
+<template>
+  <NavAndSide></NavAndSide>
+</template>

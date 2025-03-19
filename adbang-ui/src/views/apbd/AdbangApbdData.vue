@@ -1,6 +1,23 @@
 <script setup>
+import { onMounted, ref, watch, nextTick } from 'vue'
 import TableApbdData from '@/components/TableApbdData.vue'
+import $ from 'jquery'
+import 'select2'
+
+const select2 = ref(null)
+
+onMounted(async () => {
+  await nextTick()
+  $(select2.value).select2()
+})
+
+// Jika ada perubahan opsi, kita trigger ulang Select2
+watch(select2, async () => {
+  await nextTick()
+  $(select2.value).select2()
+})
 </script>
+
 <template>
   <NavAndSide></NavAndSide>
   <div class="content">
@@ -21,14 +38,9 @@ import TableApbdData from '@/components/TableApbdData.vue'
         <div class="select-1">
           Organisasi Perangkat Daerah
           <label for="">
-            <select name="" id="">
-              <option value="">DINAS PENDIDIKAN</option>
-              <option value="">DINAS KESEHATAN</option>
-              <option value="">DINAS PEKERJAAN UMUM DAN PENATAAN RUANG</option>
-              <option value="">DINAS PERUMAHAN, PEMUKIMAN DAN PERTAHANAN</option>
-              <option value="">SATUAN POLISI PAMONG PRAJA</option>
-              <option value="">BADAN PENANGGULANGAN BENCANA DAERAH</option>
-              <option value=""></option>
+            <select ref="select2" class="js-example-basic-single">
+              <option value="AL">Alabama</option>
+              <option value="WY">Wyoming</option>
             </select>
           </label>
         </div>
@@ -59,6 +71,7 @@ import TableApbdData from '@/components/TableApbdData.vue'
   <!--div penutup content-->
   <footer><span class="app">APP</span><span class="version">VERSION</span></footer>
 </template>
+
 <style scoped>
 .table-title {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -95,7 +108,7 @@ footer {
 .kegiatan-btn {
   outline: none;
   border: none;
-  border: 1px solid rgb(88, 231, 88);
+  border: 2px solid rgb(85, 204, 85);
   background-color: white;
   /* border: 1px solid green; */
   color: rgb(88, 231, 88);
