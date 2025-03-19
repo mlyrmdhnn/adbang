@@ -134,6 +134,10 @@ onUnmounted(() => {
 }
 /* Navbar */
 .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 50px;
   background-color: #365677;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
@@ -141,6 +145,7 @@ onUnmounted(() => {
   align-items: center;
   padding: 0 20px;
   color: rgb(255, 0, 0);
+  z-index: 100; /* Tambahkan ini agar navbar berada di atas elemen lain */
 }
 
 .hamburger {
@@ -153,6 +158,7 @@ onUnmounted(() => {
 
 /* Sidebar */
 .sidebar {
+  /* margin-top: 2.9rem; */
   width: 60px;
   height: 100vh;
   background-color: #e0e0e0;
