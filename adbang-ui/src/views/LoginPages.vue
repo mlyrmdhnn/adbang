@@ -115,6 +115,10 @@ a {
   display: flex;
   font-size: 2rem;
 }
+
+.ball-container {
+  color: black;
+}
 .twitter {
   border-radius: 50%;
   /* padding: 5px; */
