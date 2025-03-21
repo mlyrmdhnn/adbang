@@ -68,7 +68,7 @@ watch(select2, async () => {
       <TableApbdData></TableApbdData>
     </div>
   </div>
-  <!--div penutup content-->
+
   <footer><span class="app">APP</span><span class="version">VERSION</span></footer>
 </template>
 

@@ -7,6 +7,7 @@ import './assets/main.css'
 import NavAndSide from './components/NavAndSide.vue'
 import Footer from './components/Footer.vue'
 import Highcharts from 'highcharts'
+import ContentTemplate from './template/ContentTemplate.vue'
 
 Highcharts.setOptions({
   lang: {
@@ -18,6 +19,7 @@ const app = createApp(App)
 
 app.component('NavAndSide', NavAndSide)
 app.component('Footer', Footer)
+app.component('ContentTemplate', ContentTemplate)
 if (import.meta.env.PROD) {
   app.config.devtools = false
 }

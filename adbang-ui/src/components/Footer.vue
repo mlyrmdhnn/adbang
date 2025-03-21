@@ -32,5 +32,6 @@
   color: white;
   font-size: 0.9rem;
   font-weight: bold;
+  cursor: pointer;
 }
 </style>
