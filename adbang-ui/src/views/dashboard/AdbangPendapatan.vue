@@ -202,12 +202,25 @@ import ChartPendapatan2 from '@/components/ChartPendapatan2.vue'
   border-radius: 10px;
   gap: 1rem;
 }
-.widget-numbers {
-  font-size: 1.4rem;
+.widget-heading {
+  font-weight: 650;
+}
+
+.widget-subheading {
+  color: rgb(218, 218, 218);
+}
+.widget-content-wrapper {
   /* border: 1px solid black; */
-  text-align: right;
-  margin-right: 2rem;
-  transform: translateY(-2rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem 0 1rem;
+}
+
+.widget-numbers {
+  /* border: 1px solid black; */
+  font-weight: 650;
+  font-size: 1.3rem;
 }
 .house {
   display: flex;
@@ -252,5 +265,6 @@ import ChartPendapatan2 from '@/components/ChartPendapatan2.vue'
 .table-container {
   border: 1px solid green;
   margin-top: 2rem;
+  width: 98%;
 }
 </style>

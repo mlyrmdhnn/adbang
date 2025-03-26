@@ -1,78 +1,82 @@
+<!-- eslint-disable no-undef -->
 <script setup>
-import { onMounted, ref, watch, nextTick } from 'vue'
+import { ref } from 'vue'
+
+import 'select2/dist/js/select2.full.min.js'
+import 'select2/dist/css/select2.min.css'
+import ContentTemplate from '@/template/ContentTemplate.vue'
 import TableApbdData from '@/components/TableApbdData.vue'
-import $ from 'jquery'
-import 'select2'
+import dinasDanKecamatan from '@/utils/dinasKecamatan'
+import subKegiatan from '@/utils/subKegiatan'
 
-const select2 = ref(null)
-
-onMounted(async () => {
-  await nextTick()
-  $(select2.value).select2()
-})
-
-// Jika ada perubahan opsi, kita trigger ulang Select2
-watch(select2, async () => {
-  await nextTick()
-  $(select2.value).select2()
-})
+const linkName = ref([
+  'Indikator Subkegiatan',
+  'Indikator Kegiatan',
+  'Indikator Program',
+  'Strategi/Arah kebijakan',
+])
+// const goks = 'tembok'
+const val = ref('')
+const val2 = ref('')
+const handleClick = () => {
+  console.log(val.value)
+  console.log(val2.value)
+}
 </script>
 
 <template>
   <NavAndSide></NavAndSide>
-  <div class="content">
-    <div class="app-header">
-      <i class="fa fa-home"></i>/ Laporan APBD / Master Data / <span>Indikator (Sub)</span>
-    </div>
-    <div class="card">
-      <div class="card-header">
-        DATA TAHUN 2024
-        <section>
-          <router-link class="ruter" to="">Indikator Subkegiatan</router-link>
-          <router-link class="ruter" to="">Indikator Kegiatan</router-link>
-          <router-link class="ruter" to="">Indikator Program</router-link>
-          <router-link class="ruter" to="">Strategi/Arah Kebijakan</router-link>
-        </section>
-      </div>
-      <div class="card-content">
-        <div class="select-1">
-          Organisasi Perangkat Daerah
-          <label for="">
-            <select ref="select2" class="js-example-basic-single">
-              <option value="AL">Alabama</option>
-              <option value="WY">Wyoming</option>
-            </select>
-          </label>
+  <ContentTemplate>
+    <form action="" method="post">
+      <div class="card">
+        <div class="card-header">
+          DATA TAHUN 2024
+          <section>
+            <!-- eslint-disable-next-line vue/valid-v-for -->
+            <router-link v-for="link in linkName" class="ruter" to="">{{ link }}</router-link>
+          </section>
         </div>
-        <div class="select-2">
-          Sub Kegiatan
-          <label for="">
-            <select name="" id="">
-              <option value="">beat</option>
-              <option value="">vario</option>
-              <option value="">suzuki</option>
-            </select>
-          </label>
+        <div class="card-content">
+          <div class="select-1">
+            Organisasi Perangkat Daerah
+            <label>
+              <select class="js-example-basic-single" v-model="val">
+                <!-- eslint-disable-next-line vue/require-v-for-key-->
+                <option v-for="a in dinasDanKecamatan" :value="a" class="opsi">{{ a }}</option>
+              </select>
+            </label>
+          </div>
+          <div class="select-2">
+            Sub Kegiatan
+            <label>
+              <select v-model="val2" class="js-example-basic-second">
+                <!-- eslint-disable-next-line vue/require-v-for-key-->
+                <option v-for="i in subKegiatan" :value="i">{{ i }}</option>
+              </select>
+            </label>
+          </div>
+        </div>
+        <div class="select-3">
+          <span class="ruter-btn" @click="handleClick">Konfirmasi (Lihat Data)</span>
         </div>
       </div>
-      <div class="select-3">
-        <router-link class="ruter-btn" to="">Konfirmasi (Lihat Data)</router-link>
-      </div>
-    </div>
-    <!--div penutup card-->
+    </form>
     <div class="card-2">
       <div class="card-header">
         <span class="table-title">DAFTAR INDIKATOR SUB KEGIATAN</span>
         <button class="kegiatan-btn">+ Tambah Data Indikator</button>
       </div>
-      <TableApbdData></TableApbdData>
+      <TableApbdData :indikator="val" style="margin-bottom: 10rem"></TableApbdData>
     </div>
-  </div>
-
-  <footer><span class="app">APP</span><span class="version">VERSION</span></footer>
+  </ContentTemplate>
 </template>
 
 <style scoped>
+.js-example-basic-single {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 200;
+  padding: 0.2rem 0.2rem 0.2rem 0.2rem;
+}
 .table-title {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 600;
@@ -126,6 +130,7 @@ label {
   width: 45%;
   /* border: 1px solid black; */
   margin-right: 1rem;
+  max-width: 45%;
 }
 .select-2 {
   /* border: 1px solid black; */
@@ -134,6 +139,7 @@ label {
   flex-wrap: wrap;
   margin-left: 1rem;
   width: 45%;
+  max-width: 45%;
 }
 .select-3 {
   margin-top: 2rem;
@@ -154,7 +160,9 @@ label {
   margin: 0rem 1rem 0rem 1rem;
 }
 .ruter-btn:hover {
-  background-color: rgb(87, 47, 150);
+  background-color: rgb(102, 83, 131);
+
+  cursor: pointer;
 }
 .ruter-btn {
   display: flex;
@@ -162,7 +170,7 @@ label {
   align-items: center;
   color: white;
   width: 93%;
-  padding: 0rem 1rem 0rem 1rem;
+  padding: 0.2rem 1rem 0.2rem 1rem;
   border-radius: 5px;
   font-style: none;
   text-decoration: none;
@@ -201,7 +209,7 @@ label {
   width: 95%;
 }
 .card-2 {
-  /* border: 1px solid green; */
+  border: 1px solid black;
   padding: 2rem;
   background-color: aliceblue;
   width: 95%;
@@ -214,7 +222,6 @@ label {
   border-bottom: 1px solid #d2d2d2;
   justify-content: space-between;
   display: flex;
-  /* border: 1px solid gray; */
 }
 @media (max-width: 768px) {
   .content {

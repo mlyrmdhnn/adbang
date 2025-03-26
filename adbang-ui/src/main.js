@@ -8,6 +8,9 @@ import NavAndSide from './components/NavAndSide.vue'
 import Footer from './components/Footer.vue'
 import Highcharts from 'highcharts'
 import ContentTemplate from './template/ContentTemplate.vue'
+import $ from 'jquery'
+import 'select2/dist/js/select2.full.min.js'
+import 'select2/dist/css/select2.min.css'
 
 Highcharts.setOptions({
   lang: {
@@ -24,6 +27,6 @@ if (import.meta.env.PROD) {
   app.config.devtools = false
 }
 app.use(router)
-
+window.$ = window.jQuery = $
 app.config.globalProperties.$Highcharts = Highcharts
 app.mount('#app')

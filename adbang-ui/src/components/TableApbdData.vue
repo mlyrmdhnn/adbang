@@ -1,4 +1,8 @@
-<script setup></script>
+<script setup>
+defineProps({
+  indikator: String,
+})
+</script>
 <template>
   <div class="card-content-table">
     <table border="1">
@@ -16,7 +20,7 @@
       <tbody>
         <tr>
           <td>1</td>
-          <td>Jumlah Dokumen Perangkat Daerah</td>
+          <td>{{ indikator }}</td>
           <td>Dokumen</td>
           <td>5</td>
           <td>akumulatif</td>
@@ -27,7 +31,6 @@
               class="btn btn-focus btn-sm"
               style="font-size: 8pt; padding: 3px 10px"
               title="Edit data"
-              onclick="$.fn.edit(8385)"
             >
               <i class="fa fa-edit fa-fw"></i> Edit
             </button>
@@ -35,7 +38,6 @@
               class="btn btn-danger btn-sm"
               style="font-size: 8pt; padding: 3px 10px"
               title="Edit data"
-              onclick="$.fn.hapus(8385)"
             >
               <i class="fa fa-trash fa-fw"></i>
             </button>

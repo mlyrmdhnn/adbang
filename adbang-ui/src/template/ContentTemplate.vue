@@ -15,8 +15,8 @@
     rgba(255, 255, 255, 0.6);
   background-blend-mode: lighten;
   margin-top: 3rem;
-  border: 1px solid black;
-  margin-left: 3.8rem;
+  /* border: 1px solid black; */
+  margin-left: 3.75rem;
   background-position: bottom;
   display: flex;
   justify-content: center;
@@ -25,9 +25,15 @@
 }
 .main-content {
   margin-top: 2rem;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: flex;
   flex-direction: column;
   min-width: 90vw !important;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .content {
+    margin-left: 0rem;
+  }
 }
 </style>

@@ -27,48 +27,52 @@ import AnggaranChart from '@/components/AnggaranChart.vue'
             <div class="row">
               <div class="col-lg-6 col-xl-3">
                 <div class="card mb-3 widget-content bg-night-fade">
-                  <div class="widget-content-wrapper i-1">
+                  <div class="widget-content-wrapper text-white">
                     <div class="widget-content-left">
                       <div class="widget-heading">2.062.535.763.149</div>
+                      <!-- <div class="widget-subheading">Last year expenses</div> -->
                     </div>
                     <div class="widget-content-right">
-                      <div class="widget-numbers"><span>PAGU</span></div>
+                      <div class="widget-numbers text-white"><span>PAGU</span></div>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="col-lg-6 col-xl-3">
                 <div class="card mb-3 widget-content bg-arielle-smile">
-                  <div class="widget-content-wrapper i-2">
+                  <div class="widget-content-wrapper text-white">
                     <div class="widget-content-left">
                       <div class="widget-heading">1.463.985.862.108</div>
+                      <!-- <div class="widget-subheading">Total Clients Profit</div> -->
                     </div>
                     <div class="widget-content-right">
-                      <div class="widget-numbers"><span>REALISASI</span></div>
+                      <div class="widget-numbers text-white"><span>REALISASI</span></div>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="col-lg-6 col-xl-3">
                 <div class="card mb-3 widget-content bg-mixed-hopes">
-                  <div class="widget-content-wrapper i-3">
+                  <div class="widget-content-wrapper text-white">
                     <div class="widget-content-left">
                       <div class="widget-heading">66.5 %</div>
+                      <!-- <div class="widget-subheading">Total revenue streams</div> -->
                     </div>
                     <div class="widget-content-right">
-                      <div class="widget-numbers"><span>PENYERAPAN</span></div>
+                      <div class="widget-numbers text-white"><span>PENYERAPAN</span></div>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="col-lg-6 col-xl-3">
                 <div class="card mb-3 widget-content bg-happy-green">
-                  <div class="widget-content-wrapper i-4">
+                  <div class="widget-content-wrapper text-white">
                     <div class="widget-content-left">
                       <div class="widget-heading">598.549.901.041</div>
+                      <!-- <div class="widget-subheading">People Interested</div> -->
                     </div>
                     <div class="widget-content-right">
-                      <div class="widget-numbers"><span>SISA PAGU</span></div>
+                      <div class="widget-numbers text-white"><span>SISA PAGU</span></div>
                     </div>
                   </div>
                 </div>
@@ -92,7 +96,10 @@ import AnggaranChart from '@/components/AnggaranChart.vue'
           <div class="chart-header">
             <i class="fa fa-fax mobile"></i>REALISASI CAPAIAN KINERJA ( KABUPATEN BOGOR )
           </div>
-          <div style="display: flex" class=""><HighChart></HighChart><LineChart></LineChart></div>
+          <div style="display: flex; flex-wrap: wrap; border: 1px solid black" class="mobile-chart">
+            <HighChart style="max-width: 50%"></HighChart
+            ><LineChart style="max-width: 50%"></LineChart>
+          </div>
         </div>
 
         <div class="mb-5 card">
@@ -101,9 +108,22 @@ import AnggaranChart from '@/components/AnggaranChart.vue'
           </div>
           <div class="chart-2">
             <div class="chart-line"><TableData></TableData></div>
-            <div style="display: flex; margin-top: 2rem" class="mb-5 card">
-              <AnggaranChart></AnggaranChart>
-              <table class="table table-responsive table-bordered table-stripped">
+            <div
+              style="
+                margin-top: 2rem;
+                display: flex;
+                border: 1px solid green;
+
+                justify-content: center;
+                align-items: center;
+              "
+              class="mb-5 card"
+            >
+              <AnggaranChart style="display: flex; width: 100%"></AnggaranChart>
+              <table
+                class="table table-responsive table-bordered table-stripped"
+                style="width: 100%; border: 1px solid red"
+              >
                 <thead>
                   <tr>
                     <th
@@ -272,6 +292,7 @@ import AnggaranChart from '@/components/AnggaranChart.vue'
 .chart-header {
   background-color: white;
   /* border: 1px solid black; */
+  border: none;
   display: flex;
   align-items: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -294,7 +315,7 @@ import AnggaranChart from '@/components/AnggaranChart.vue'
   background: linear-gradient(135deg, #11998e, #38ef7d);
   color: white;
 }
-.widget-heading {
+/* .widget-heading {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -308,7 +329,7 @@ import AnggaranChart from '@/components/AnggaranChart.vue'
   font-size: 1.5rem;
   font-weight: 650;
   color: rgb(255, 255, 255);
-}
+} */
 
 .content {
   background:

@@ -7,45 +7,45 @@ const menus = ref([
     title: 'Dashboard',
     icon: 'fa fa-home',
     items: [
-      { text: 'Dashboard', to: '/adbang/home' },
-      { text: 'Belanja Daerah', to: '/adbang/home/belanja' },
-      { text: 'Pendapatan Daerah', to: '/adbang/home/pendapatan' },
+      { text: 'Dashboard', to: '/home' },
+      { text: 'Belanja Daerah', to: '/home/belanja' },
+      { text: 'Pendapatan Daerah', to: '/home/pendapatan' },
     ],
   },
   {
     title: 'Laporan APBD',
     icon: 'fa fa-file',
     items: [
-      { text: 'Master Data', to: '/adbang/apbd/data' },
-      { text: 'Anggaran Kas', to: '/adbang/apbd/kas' },
-      { text: 'Mengisi Laporan', to: '/adbang/apbd/isi' },
-      { text: 'Laporan Bulanan', to: '/adbang/apbd/report' },
-      { text: 'Grafik', to: '/adbang/apbd/graph' },
+      { text: 'Master Data', to: '/apbd/data' },
+      { text: 'Anggaran Kas', to: '/apbd/kas' },
+      { text: 'Mengisi Laporan', to: '/apbd/isi' },
+      { text: 'Laporan Bulanan', to: '/apbd/report' },
+      { text: 'Grafik', to: '/apbd/graph' },
     ],
   },
   {
     title: 'LKPJ',
     icon: 'fa fa-clipboard',
     items: [
-      { text: 'Kebijakan Strategis', to: '/adbang/lkpj/kebijakan' },
-      { text: 'Tindak Lanjut Rekomendasi', to: '/adbang/lkpj/tindaklanjut' },
+      { text: 'Kebijakan Strategis', to: '/lkpj/kebijakan' },
+      { text: 'Tindak Lanjut Rekomendasi', to: '/lkpj/tindaklanjut' },
     ],
   },
   {
     title: 'Data Kepegawaian',
     icon: 'fa fa-users',
     items: [
-      { text: 'Data ASN', to: '/adbang/data/dataasn' },
-      { text: 'Data Non ASN', to: '/adbang/data/datanonasn' },
+      { text: 'Data ASN', to: '/data/dataasn' },
+      { text: 'Data Non ASN', to: '/data/datanonasn' },
     ],
   },
   {
     title: 'Prestasi & Penghargaan',
     icon: 'fa fa-image',
     items: [
-      { text: 'Data Prestasi', to: '/adbang/prestasi/data-prestasi' },
-      { text: 'Data Penghargaan', to: '/adbang/prestasi/data-penghargaan' },
-      { text: 'Laporan ( Output )', to: '/adbang/prestasi/output' },
+      { text: 'Data Prestasi', to: '/prestasi/data-prestasi' },
+      { text: 'Data Penghargaan', to: '/prestasi/data-penghargaan' },
+      { text: 'Laporan ( Output )', to: '/prestasi/output' },
     ],
   },
 ])
@@ -139,7 +139,7 @@ onUnmounted(() => {
   left: 0;
   width: 100%;
   height: 50px;
-  background-color: #365677;
+  background: linear-gradient(90deg, #cea1fc, #9890f0, #f5bbfc);
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
