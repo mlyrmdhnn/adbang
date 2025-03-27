@@ -322,3 +322,12 @@ import dinasDanKecamatan from '@/utils/dinasKecamatan'
     </div>
   </ContentTemplate>
 </template>
+<style scoped>
+.card {
+  /* border: 1px solid green; */
+  width: 100%;
+}
+.row {
+  width: 100%;
+}
+</style>

@@ -18,9 +18,7 @@ import ChartApbdGraph from '@/components/ChartApbdGraph.vue'
         <label for="">
           Pilih Tahun
           <br />
-          <select name="" id="" class="select-2">
-            <!-- eslint-disable-next-line vue/require-v-for-key -->
-
+          <select name="" id="" class="select-2 form-control">
             <option value="2019">2019</option>
             <option value="2020">2020</option>
             <option value="2021">2021</option>
@@ -33,9 +31,8 @@ import ChartApbdGraph from '@/components/ChartApbdGraph.vue'
         <label for="">
           Pilih Dinas
           <br />
-          <select name="" id="" class="option-years-2">
-            <!-- eslint-disable-next-line vue/require-v-for-key -->
-            <option v-for="d in dinasDanKecamatan" :value="d">
+          <select name="" id="" class="option-years-2 form-control">
+            <option v-for="d in dinasDanKecamatan" :value="d" :key="d">
               {{ d }}
             </option>
           </select>

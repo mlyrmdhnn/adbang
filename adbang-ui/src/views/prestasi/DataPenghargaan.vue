@@ -1,6 +1,7 @@
 <script setup>
 import NavAndSide from '@/components/NavAndSide.vue'
 import ContentTemplate from '@/template/ContentTemplate.vue'
+import dinasDanKecamatan from '@/utils/dinasKecamatan'
 </script>
 <template>
   <NavAndSide></NavAndSide>
@@ -26,91 +27,7 @@ import ContentTemplate from '@/template/ContentTemplate.vue'
               <div class="row g-3">
                 <div class="col-7 col-sm-7 col-xs-4 pe-0">
                   <select class="form-control" name="dinas_id" style="border-radius: 0px">
-                    <option value="1">Dinas Pendidikan</option>
-                    <option value="2">Dinas Kesehatan</option>
-                    <option value="3" selected="">Dinas Pekerjaan Umum Dan Penataan Ruang</option>
-                    <option value="5">Dinas Perumahan, Kawasan Permukiman Dan Pertanahan</option>
-                    <option value="6">Satuan Polisi Pamong Praja</option>
-                    <option value="7">Badan Penanggulangan Bencana Daerah</option>
-                    <option value="8">Dinas Pemadam Kebakaran</option>
-                    <option value="9">Dinas Sosial</option>
-                    <option value="10">Dinas Tenaga Kerja</option>
-                    <option value="11">
-                      Dinas Pemberdayaan Perempuan Dan Perlindungan Anak, Pengendalian Penduduk Dan
-                      Keluarga Berencana
-                    </option>
-                    <option value="12">Dinas Ketahanan Pangan</option>
-                    <option value="13">Dinas Lingkungan Hidup</option>
-                    <option value="14">Dinas Kependudukan Dan Pencatatan Sipil</option>
-                    <option value="15">Dinas Pemberdayaan Masyarakat Dan Desa</option>
-                    <option value="16">Dinas Perhubungan</option>
-                    <option value="17">Dinas Komunikasi Dan Informatika</option>
-                    <option value="18">Dinas Koperasi, Usaha Kecil Dan Menengah</option>
-                    <option value="19">
-                      Dinas Penanaman Modal Dan Pelayanan Terpadu Satu Pintu
-                    </option>
-                    <option value="20">Dinas Pemuda Dan Olahraga</option>
-                    <option value="21">Dinas Kebudayaan Dan Pariwisata</option>
-                    <option value="22">Dinas Arsip Dan Perpustakaan</option>
-                    <option value="23">Dinas Perikanan Dan Peternakan</option>
-                    <option value="24">Dinas Tanaman Pangan, Hortikultura Dan Perkebunan</option>
-                    <option value="25">Dinas Perdagangan Dan Perindustrian</option>
-                    <option value="26">Sekretariat Daerah</option>
-                    <option value="27">Sekretariat Dprd</option>
-                    <option value="28">
-                      Badan Perencanaan Pembangunan, Penelitian Dan Pengembangan Daerah
-                    </option>
-                    <option value="29">Badan Pengelolaan Keuangan Dan Aset Daerah</option>
-                    <option value="30">Badan Pengelolaan Pendapatan Daerah</option>
-                    <option value="31">
-                      Badan Kepegawaian Dan Pengembangan Sumber Daya Manusia
-                    </option>
-                    <option value="32">Inspektorat</option>
-                    <option value="33">Kecamatan Cibinong</option>
-                    <option value="34">Kecamatan Gunung Putri</option>
-                    <option value="35">Kecamatan Citeureup</option>
-                    <option value="36">Kecamatan Sukaraja</option>
-                    <option value="37">Kecamatan Babakan Madang</option>
-                    <option value="38">Kecamatan Jonggol</option>
-                    <option value="39">Kecamatan Cileungsi</option>
-                    <option value="40">Kecamatan Cariu</option>
-                    <option value="41">Kecamatan Sukamakmur</option>
-                    <option value="42">Kecamatan Parung</option>
-                    <option value="43">Kecamatan Gunung Sindur</option>
-                    <option value="44">Kecamatan Kemang</option>
-                    <option value="45">Kecamatan Bojonggede</option>
-                    <option value="46">Kecamatan Leuwiliang</option>
-                    <option value="47">Kecamatan Ciampea</option>
-                    <option value="48">Kecamatan Cibungbulang</option>
-                    <option value="49">Kecamatan Pamijahan</option>
-                    <option value="50">Kecamatan Rumpin</option>
-                    <option value="51">Kecamatan Jasinga</option>
-                    <option value="52">Kecamatan Parung Panjang</option>
-                    <option value="53">Kecamatan Nanggung</option>
-                    <option value="54">Kecamatan Cigudeg</option>
-                    <option value="55">Kecamatan Tenjo</option>
-                    <option value="56">Kecamatan Ciawi</option>
-                    <option value="57">Kecamatan Cisarua</option>
-                    <option value="58">Kecamatan Megamendung</option>
-                    <option value="59">Kecamatan Caringin</option>
-                    <option value="60">Kecamatan Cijeruk</option>
-                    <option value="61">Kecamatan Ciomas</option>
-                    <option value="62">Kecamatan Dramaga</option>
-                    <option value="63">Kecamatan Tamansari</option>
-                    <option value="64">Kecamatan Klapanunggal</option>
-                    <option value="65">Kecamatan Ciseeng</option>
-                    <option value="66">Kecamatan Rancabungur</option>
-                    <option value="67">Kecamatan Sukajaya</option>
-                    <option value="68">Kecamatan Tanjungsari</option>
-                    <option value="69">Kecamatan Tajurhalang</option>
-                    <option value="70">Kecamatan Cigombong</option>
-                    <option value="71">Kecamatan Leuwisadeng</option>
-                    <option value="72">Kecamatan Tenjolaya</option>
-                    <option value="73">Badan Kesatuan Bangsa Dan Politik</option>
-                    <option value="74">Rsud Cibinong</option>
-                    <option value="75">Rsud Ciawi</option>
-                    <option value="76">Rsud Cileungsi</option>
-                    <option value="77">Rsud Leuwiliang</option>
+                    <option v-for="d in dinasDanKecamatan" :value="d" :key="d">{{ d }}</option>
                   </select>
                 </div>
                 <div class="col p-0">
@@ -269,4 +186,13 @@ import ContentTemplate from '@/template/ContentTemplate.vue'
     </div>
   </ContentTemplate>
 </template>
-<style scoped></style>
+<style scoped>
+.row {
+  /* border: 1px solid black; */
+  min-width: 100%;
+}
+.card {
+  /* border: 1px solid black; */
+  min-width: 100%;
+}
+</style>

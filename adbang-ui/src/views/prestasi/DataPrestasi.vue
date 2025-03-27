@@ -31,8 +31,7 @@ import dinasDanKecamatan from '@/utils/dinasKecamatan'
               <div class="row g-3">
                 <div class="col-7 col-sm-7 col-xs-4 pe-0">
                   <select class="form-control" name="dinas_id" style="border-radius: 0px">
-                    <!-- eslint-disable-next-line vue/require-v-for-key -->
-                    <option v-for="d in dinasDanKecamatan" :value="d">{{ d }}</option>
+                    <option v-for="d in dinasDanKecamatan" :value="d" :key="d">{{ d }}</option>
                   </select>
                 </div>
                 <div class="col p-0">

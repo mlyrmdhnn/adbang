@@ -32,26 +32,27 @@ const handleClick = () => {
         <div class="card-header">
           DATA TAHUN 2024
           <section>
-            <!-- eslint-disable-next-line vue/valid-v-for -->
-            <router-link v-for="link in linkName" class="ruter" to="">{{ link }}</router-link>
+            <router-link v-for="link in linkName" class="ruter" to="" :key="link">{{
+              link
+            }}</router-link>
           </section>
         </div>
         <div class="card-content">
           <div class="select-1">
             Organisasi Perangkat Daerah
             <label>
-              <select class="js-example-basic-single" v-model="val">
-                <!-- eslint-disable-next-line vue/require-v-for-key-->
-                <option v-for="a in dinasDanKecamatan" :value="a" class="opsi">{{ a }}</option>
+              <select class="js-example-basic-single form-control" v-model="val">
+                <option v-for="a in dinasDanKecamatan" :value="a" class="opsi" :key="a">
+                  {{ a }}
+                </option>
               </select>
             </label>
           </div>
           <div class="select-2">
             Sub Kegiatan
             <label>
-              <select v-model="val2" class="js-example-basic-second">
-                <!-- eslint-disable-next-line vue/require-v-for-key-->
-                <option v-for="i in subKegiatan" :value="i">{{ i }}</option>
+              <select v-model="val2" class="js-example-basic-second form-control">
+                <option v-for="i in subKegiatan" :value="i" :key="i">{{ i }}</option>
               </select>
             </label>
           </div>
@@ -72,6 +73,11 @@ const handleClick = () => {
 </template>
 
 <style scoped>
+form {
+  /* border: 1px solid black; */
+  margin: auto;
+  width: 100%;
+}
 .js-example-basic-single {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-weight: 200;
@@ -206,13 +212,13 @@ label {
 }
 .card {
   /* border: 1px solid green; */
-  width: 95%;
+  width: 100%;
 }
 .card-2 {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   padding: 2rem;
   background-color: aliceblue;
-  width: 95%;
+  width: 100%;
   margin-top: 2rem;
   border-radius: 10px;
   border: 1px solid #d2d2d2;

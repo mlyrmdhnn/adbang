@@ -13,8 +13,7 @@ import dinasDanKecamatan from '@/utils/dinasKecamatan'
           Pilih Dinas
           <br />
           <select name="" id="" class="form-control">
-            <!-- eslint-disable-next-line vue/require-v-for-key -->
-            <option v-for="d in dinasDanKecamatan" :value="d">{{ d }}</option>
+            <option v-for="d in dinasDanKecamatan" :value="d" :key="d">{{ d }}</option>
           </select>
         </label>
         <label for="">
@@ -42,8 +41,7 @@ import dinasDanKecamatan from '@/utils/dinasKecamatan'
           Pilih Dinas
           <br />
           <select name="" id="" class="form-control">
-            <!-- eslint-disable-next-line vue/require-v-for-key -->
-            <option v-for="d in dinasDanKecamatan" :value="d">{{ d }}</option>
+            <option v-for="d in dinasDanKecamatan" :value="d" :key="d">{{ d }}</option>
           </select>
         </label>
         <label for="">

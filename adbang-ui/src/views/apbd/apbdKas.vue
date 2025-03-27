@@ -14,8 +14,7 @@ import '@/assets/utils.css'
         <div class="row">
           <div class="col-md-6">
             <select type="select" name="dinas_id" class="form-control" required="">
-              <!-- eslint-disable-next-line vue/require-v-for-key -->
-              <option v-for="d in dinasDanKecamatan" :value="d">{{ d }}</option>
+              <option v-for="d in dinasDanKecamatan" :value="d" :key="d">{{ d }}</option>
             </select>
           </div>
           <div class="col-md-6">
@@ -85,10 +84,18 @@ import '@/assets/utils.css'
 </template>
 <style scoped>
 .col-md-6 {
-  background-color: black;
+  /* background-color: black; */
+  background-color: white;
+  margin-bottom: -2.2rem;
   display: flex;
-  width: 95% !important;
+  max-width: 100% !important;
   align-items: center;
   height: 5rem;
+}
+.row {
+  /* border: 1px solid black; */
+  margin-bottom: -2rem;
+  max-width: 100%;
+  margin: auto;
 }
 </style>
