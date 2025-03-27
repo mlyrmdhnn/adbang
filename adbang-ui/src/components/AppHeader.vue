@@ -21,7 +21,7 @@ const handleClick = () => {
 </template>
 <style scoped>
 .content-header {
-  width: 95%;
+  width: 100%;
   margin-bottom: 2rem;
   min-width: 80vw;
   display: flex;

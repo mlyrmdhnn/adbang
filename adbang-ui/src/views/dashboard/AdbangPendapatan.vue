@@ -5,13 +5,19 @@ import ChartPendapatan2 from '@/components/ChartPendapatan2.vue'
 
 <template>
   <ContentTemplate>
-    <section class="content-header">
-      <section class="house"><i class="bi bi-house-fill"></i></section>
-      <section class="text">
-        <span class="text-1">Dashboard</span>
-        <span class="text-2">Silahkan pilih menu di bawah ini</span>
-      </section>
-    </section>
+    <div class="app-page-title">
+      <div class="page-title-wrapper">
+        <div class="page-title-heading">
+          <!--  icon-gradient bg-mean-fruit -->
+          <div class="page-title-icon"><i class="fa fa-home"></i></div>
+          <div>
+            Dashboard
+            <div class="page-title-subheading">Silahkan pilih menu di bawah ini.</div>
+          </div>
+        </div>
+        <div class="page-title-actions"></div>
+      </div>
+    </div>
     <div class="col-md-12 col-lg-12">
       <div class="mb-3 card">
         <div class="card-header-tab card-header">
@@ -266,5 +272,8 @@ import ChartPendapatan2 from '@/components/ChartPendapatan2.vue'
   border: 1px solid green;
   margin-top: 2rem;
   width: 98%;
+}
+.app-page-title {
+  width: 100%;
 }
 </style>
