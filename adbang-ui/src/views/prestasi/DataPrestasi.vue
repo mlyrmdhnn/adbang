@@ -1,2 +1,4 @@
-<script setup></script>
-<template><NavAndSide></NavAndSide></template>
+<script setup>
+import ContentTemplate from '@/template/ContentTemplate.vue'
+</script>
+<template><ContentTemplate></ContentTemplate></template>

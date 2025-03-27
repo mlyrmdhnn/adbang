@@ -1,23 +1,20 @@
 <script setup>
-import '@/assets/font-awesome.min.css'
 import '@/assets/my.css'
 import '@/assets/utils.css'
-import '@/assets/bootstrap.css'
-import '@/assets/animate.css'
-import '@/assets/select2.min.css'
-import '@/assets/rain.css'
+
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 const router = useRouter()
 
 const username = ref('')
 const password = ref('')
+const errorMessage = ref('')
 
 const handleLogin = () => {
   if (username.value === 'Mulya' && password.value === 'Gataulupa234') {
     router.push('/home')
   } else {
-    alert('Username atau password salah!')
+    errorMessage.value = 'Username atau password salah!'
   }
 }
 </script>
@@ -117,6 +114,38 @@ const handleLogin = () => {
         <a href="#" class="flex-c-m size5 bg4 how1 trans-04 m-r-5">
           <i class="fa fa-twitter"></i>
         </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- modal -->
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Login</h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <input type="text" v-model="username" placeholder="Username" class="form-control mb-2" />
+          <input type="password" v-model="password" placeholder="Password" class="form-control" />
+          <p v-if="errorMessage" class="text-danger mt-2">{{ errorMessage }}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" @click="handleLogin">Login</button>
+        </div>
       </div>
     </div>
   </div>

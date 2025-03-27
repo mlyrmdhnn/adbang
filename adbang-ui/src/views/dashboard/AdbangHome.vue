@@ -184,7 +184,6 @@ const toggleDropdown = (index) => {
 <script setup>
 import NavAndSide from '@/components/NavAndSide.vue'
 import ContentTemplate from '@/template/ContentTemplate.vue'
-import '@/assets/font-awesome.min.css'
 import '@/assets/min.css'
 import DropdownButton from '@/components/DropdownButton.vue'
 import { ref } from 'vue'

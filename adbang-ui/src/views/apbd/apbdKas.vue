@@ -2,6 +2,9 @@
 import AppHeader from '@/components/AppHeader.vue'
 import ContentTemplate from '@/template/ContentTemplate.vue'
 import dinasDanKecamatan from '@/utils/dinasKecamatan'
+import '@/assets/min.css'
+import '@/assets/my.css'
+import '@/assets/utils.css'
 </script>
 <template>
   <ContentTemplate>
@@ -45,11 +48,6 @@ import dinasDanKecamatan from '@/utils/dinasKecamatan'
       <hr />
 
       <div class="table-responsive" style="overflow-x: auto">
-        <sr> </sr><sr> </sr><sr> </sr><sr> </sr><sr> </sr><sr> </sr><sr> </sr><sr> </sr><sr> </sr
-        ><sr> </sr><sr> </sr><sr> </sr><sr> </sr><sr> </sr><sr> </sr><sr> </sr><sr> </sr><sr> </sr
-        ><sr> </sr><sr> </sr><sr> </sr><sr> </sr><sr> </sr><sr> </sr><sr> </sr><sr> </sr><sr> </sr
-        ><sr> </sr><sr> </sr><sr> </sr><sr> </sr><sr> </sr><sr> </sr><sr> </sr><sr> </sr><sr> </sr
-        ><sr> </sr><sr> </sr><sr> </sr><sr> </sr>
         <table class="mb-0 table table-bordered table-hover" id="tb-kiki">
           <thead>
             <tr>
@@ -85,4 +83,12 @@ import dinasDanKecamatan from '@/utils/dinasKecamatan'
     </div>
   </ContentTemplate>
 </template>
-<style scoped></style>
+<style scoped>
+.col-md-6 {
+  background-color: black;
+  display: flex;
+  width: 95% !important;
+  align-items: center;
+  height: 5rem;
+}
+</style>
