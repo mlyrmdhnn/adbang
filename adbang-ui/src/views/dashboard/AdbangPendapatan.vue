@@ -483,6 +483,7 @@ import ChartPendapatan2 from '@/components/ChartPendapatan2.vue'
       </div>
     </div></ContentTemplate
   >
+  <!-- update sblm di pull -->
 </template>
 <style scoped>
 .table-responsive table {
