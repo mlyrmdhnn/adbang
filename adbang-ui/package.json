@@ -11,6 +11,9 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@tanstack/vue-query": "^5.70.0",
+    "axios": "^1.8.4",
+    "bootstrap": "^5.3.3",
     "datatables.net": "^2.2.2",
     "datatables.net-bs5": "^2.2.2",
     "datatables.net-dt": "^2.2.2",

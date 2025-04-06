@@ -108,11 +108,11 @@ const handleLogin = () => {
 
       <div class="flex-w">
         <a href="#" class="flex-c-m size5 bg3 how1 trans-04 m-r-5">
-          <i class="fa fa-facebook"></i>
+          <i class="fab fa-facebook"></i>
         </a>
 
         <a href="#" class="flex-c-m size5 bg4 how1 trans-04 m-r-5">
-          <i class="fa fa-twitter"></i>
+          <i class="fab fa-twitter"></i>
         </a>
       </div>
     </div>

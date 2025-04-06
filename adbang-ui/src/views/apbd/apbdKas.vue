@@ -1,3 +1,4 @@
+<!-- eslint-disable no-unused-vars -->
 <script setup>
 import AppHeader from '@/components/AppHeader.vue'
 import ContentTemplate from '@/template/ContentTemplate.vue'
@@ -5,6 +6,30 @@ import dinasDanKecamatan from '@/utils/dinasKecamatan'
 import '@/assets/min.css'
 import '@/assets/my.css'
 import '@/assets/utils.css'
+
+import { ref, onMounted } from 'vue'
+import { useQuery } from '@tanstack/vue-query'
+import axios from 'axios'
+
+// Fungsi untuk fetch data dengan Authorization header
+const fetchData = async () => {
+  const response = await axios.get(
+    'https://adbang.bogorkab.go.id/data/api/programs?opd=DINAS KESEHATAN',
+    {
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Authorization': 'qlvq19ApGbIOMixw0AL8B7VU8fravPclZM0CWrS53B42Ih2RyUbohIvyO4IkmRWH',
+      },
+    },
+  )
+  return response.data
+}
+
+// Gunakan Vue Query untuk fetch data
+const { data, isLoading, error } = useQuery({
+  queryKey: ['programs'],
+  queryFn: fetchData,
+})
 </script>
 <template>
   <ContentTemplate>
@@ -45,6 +70,15 @@ import '@/assets/utils.css'
         <input type="hidden" name="" value="" />
       </form>
       <hr />
+      <!-- <h1 v-for="i in data?.data[0]" :key="i.id">{{ i.nama }}</h1> -->
+
+      <h1 v-if="isLoading">...</h1>
+      <h1 v-else-if="error">Error fetching data</h1>
+      <h6 v-for="(k, index) in data?.data[0]?.kegiatan" :key="index">{{ k.nama }}</h6>
+      <br />
+      <h6 v-for="(k, index) in data" :key="index" style="color: green">
+        {{ k.nama }}
+      </h6>
 
       <div class="table-responsive" style="overflow-x: auto">
         <table class="mb-0 table table-bordered table-hover" id="tb-kiki">
@@ -59,7 +93,7 @@ import '@/assets/utils.css'
           <tbody>
             <tr class="keg" style="background-color: #e9ecef">
               <td class="text">1.1.1.1</td>
-              <td class="text" colspan="1">test</td>
+              <td class="text" colspan="1" style="font-weight: 700">Laporan APBD Tahun 2025</td>
               <td></td>
               <td class="text-center">ksong</td>
             </tr>

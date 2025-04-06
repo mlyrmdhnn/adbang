@@ -84,6 +84,7 @@ onUnmounted(() => {
   <!-- Navbar -->
   <nav class="navbar">
     <button @click="toggleSidebar" class="hamburger">☰</button>
+    <section class="name"><span>Mulya</span><span>Admin</span></section>
   </nav>
 
   <!-- Sidebar -->
@@ -112,10 +113,22 @@ onUnmounted(() => {
 
 <style scoped>
 .menuIcon {
-  transform: translateY(1rem);
+  transform: translateY(0rem);
+  font-size: 1.5rem;
+  color: gray;
+  /* border: 1px solid rebeccapurple; */
+  display: flex;
+  width: 4rem;
+  height: 1.6rem;
+  align-items: center;
 }
 .titleItem {
   animation: titleItemAnimation 0.3s ease;
+  /* border: 1px solid black; */
+  width: 100%;
+  display: flex;
+  /* justify-content: center; */
+  text-align: left;
 }
 
 @keyframes titleItemAnimation {
@@ -138,13 +151,13 @@ onUnmounted(() => {
   top: 0;
   left: 0;
   width: 100%;
-  height: 50px;
+  height: 60px;
   background: linear-gradient(90deg, #cea1fc, #9890f0, #f5bbfc);
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   padding: 0 20px;
-  color: rgb(255, 0, 0);
+  /* color: rgb(255, 0, 0); */
   z-index: 100; /* Tambahkan ini agar navbar berada di atas elemen lain */
 }
 
@@ -161,7 +174,7 @@ onUnmounted(() => {
   /* margin-top: 2.9rem; */
   width: 60px;
   height: 100vh;
-  background-color: #e0e0e0;
+  background-color: #f5eeee;
   color: rgb(61, 61, 61);
   position: fixed;
   transition: width 0.3s;
@@ -187,14 +200,18 @@ onUnmounted(() => {
   list-style: none;
   padding: 0;
   margin: 0;
+  /* border: 1px solid black; */
+  margin-top: 2rem;
 }
 
 .menu-header {
+  /* border: 1px solid blue; */
   display: flex;
-  /* align-items: center; */
+  align-items: center;
   gap: 10px;
   /* justify-content: space-between; */
   padding: 15px;
+  font-size: 1.01rem;
   cursor: pointer;
 }
 
@@ -247,5 +264,11 @@ onUnmounted(() => {
   .menu-header:hover i {
     display: none;
   }
+}
+.name {
+  /* border: 1px solid black; */
+  display: flex;
+  color: black;
+  flex-direction: column;
 }
 </style>

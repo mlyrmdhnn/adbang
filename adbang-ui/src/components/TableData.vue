@@ -93,4 +93,12 @@ tbody tr:hover {
   background-color: #ddd;
   cursor: pointer;
 }
+@media (max-width: 768px) {
+  table {
+    width: 100%;
+  }
+  .chart-table {
+    min-width: 70%;
+  }
+}
 </style>
