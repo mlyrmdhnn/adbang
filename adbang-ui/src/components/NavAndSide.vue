@@ -84,7 +84,9 @@ onUnmounted(() => {
   <!-- Navbar -->
   <nav class="navbar">
     <button @click="toggleSidebar" class="hamburger">☰</button>
-    <section class="name"><span>Mulya</span><span>Admin</span></section>
+    <section class="name">
+      <span class="person-name">Mulya</span><span class="role">Admin</span>
+    </section>
   </nav>
 
   <!-- Sidebar -->
@@ -112,6 +114,21 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
+.name {
+  /* border: 1px solid black; */
+  text-align: left;
+  display: flex;
+  /* color: black; */
+  flex-direction: column;
+}
+.role {
+  color: gray;
+  font-size: 110%;
+}
+.person-name {
+  font-weight: 600;
+  color: rgb(70, 70, 70);
+}
 .menuIcon {
   transform: translateY(0rem);
   font-size: 1.5rem;
@@ -264,11 +281,5 @@ onUnmounted(() => {
   .menu-header:hover i {
     display: none;
   }
-}
-.name {
-  /* border: 1px solid black; */
-  display: flex;
-  color: black;
-  flex-direction: column;
 }
 </style>

@@ -113,12 +113,12 @@ const toggleDropdown = (index) => {
 </template>
 <style scoped>
 .app-page-title {
-  /* border: 1px solid black; */
+  margin-top: 1rem;
   width: 100%;
 }
 .main-content {
   /* border: 1px solid black; */
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
   height: 18rem;
   display: flex;
   flex-direction: column;
@@ -151,6 +151,9 @@ const toggleDropdown = (index) => {
   .main-content {
     /* border: 1px solid green; */
     height: max-content;
+  }
+  .app-page-title {
+    margin-top: 0rem;
   }
 }
 </style>

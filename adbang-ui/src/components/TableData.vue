@@ -1,4 +1,4 @@
-<script setup>
+<!-- <script setup>
 import { ref, onMounted } from 'vue'
 
 const tableData = ref([])
@@ -11,9 +11,9 @@ const fetchData = async () => {
     console.log('Data diterima:', result)
 
     if (Array.isArray(result)) {
-      tableData.value = result // Jika API langsung mengembalikan array
+      tableData.value = result
     } else if (result.data && Array.isArray(result.data)) {
-      tableData.value = result.data // Jika API mengembalikan data dalam objek
+      tableData.value = result.data
     } else {
       throw new Error('Format data tidak sesuai yang diharapkan.')
     }
@@ -101,4 +101,9 @@ tbody tr:hover {
     min-width: 70%;
   }
 }
-</style>
+</style> -->
+<script setup></script>
+<template>
+  <div class="card-body" style="padding-bottom: 0"></div>
+</template>
+<style scoped></style>

@@ -15,6 +15,7 @@ import DataNonASN from '@/views/dataKepegawaian/DataNonASN.vue'
 import DataPrestasi from '@/views/prestasi/DataPrestasi.vue'
 import DataPenghargaan from '@/views/prestasi/DataPenghargaan.vue'
 import OutputPrestasi from '@/views/prestasi/OutputPrestasi.vue'
+import apitest from '@/data/apitest.vue'
 
 const routes = [
   { path: '/', component: LoginPages },
@@ -33,6 +34,7 @@ const routes = [
   { path: '/prestasi/data-prestasi', component: DataPrestasi },
   { path: '/prestasi/data-penghargaan', component: DataPenghargaan },
   { path: '/prestasi/output', component: OutputPrestasi },
+  { path: '/apitest', component: apitest },
 ]
 
 const router = createRouter({

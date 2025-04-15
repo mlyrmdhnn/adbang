@@ -422,6 +422,7 @@ import TableData from '@/components/TableData.vue'
 import AnggaranChart from '@/components/AnggaranChart.vue'
 import NavAndSide from '@/components/NavAndSide.vue'
 import ContentTemplate from '@/template/ContentTemplate.vue'
+import TableHomeBelanja from '@/components/TableHomeBelanja.vue'
 </script>
 <template>
   <NavAndSide></NavAndSide>
@@ -513,7 +514,7 @@ import ContentTemplate from '@/template/ContentTemplate.vue'
         </div>
       </div>
     </div>
-    <div class="mb-5 card" style="width: 100%">
+    <!-- <div class="mb-5 card" style="width: 100%">
       <div class="chart-header">
         <i class="fa fa-fax mobile"></i>REALISASI CAPAIAN KINERJA ( KABUPATEN BOGOR )
       </div>
@@ -522,25 +523,89 @@ import ContentTemplate from '@/template/ContentTemplate.vue'
         ><LineChart class="linear-chart" style="max-width: 50%"></LineChart>
       </div>
     </div>
-    <!-- <TableData></TableData> -->
-    <!-- <TableData style="max-width: 90vw"></TableData> -->
-    <div><AnggaranChart class="anggaran-chart" style="width: 90vw"></AnggaranChart></div>
+
+    <div><AnggaranChart class="anggaran-chart" style="width: 90vw"></AnggaranChart></div> -->
+    <div class="mb-5 card" style="width: 100%">
+      <div class="card-header-tab card-header">
+        <div class="card-header-title">
+          <i class="header-icon lnr-rocket fa fa-fax"></i> REALISASI CAPAIAN KINERJA ( KABUPATEN
+          BOGOR )
+        </div>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap" class="mobile-chart">
+        <HighChart style="max-width: 50%" class="pie-chart"></HighChart
+        ><LineChart class="linear-chart" style="max-width: 50%"></LineChart>
+      </div>
+    </div>
+    <!-- <AnggaranChart></AnggaranChart> -->
+    <div class="mb-5-card" style="width: 100%">
+      <div class="card-header-tab card-header">
+        <div class="card-header-title">
+          <i class="header-icon lnr-rocket fa fa-fax"></i> DEVIASI ANGGARAN KAS ( KABUPATEN BOGOR )
+        </div>
+      </div>
+      <TableData></TableData>
+      <div style="display: flex; flex-wrap: wrap" class="mobile-chart mobile-chart-2">
+        <AnggaranChart class="chart-anggaran"></AnggaranChart>
+        <TableHomeBelanja class="table-chart"></TableHomeBelanja>
+      </div>
+    </div>
   </ContentTemplate>
 </template>
 <style scoped>
+.mobile-chart-2 {
+  background-color: white;
+  margin-top: -1.5rem;
+}
+.chart-anggaran {
+  max-width: 50%;
+  min-height: 70vh;
+}
+.table-chart {
+  width: 50%;
+  min-height: 70vh;
+}
 .anggaran-chart {
   width: 90%;
 }
+.app-page-title {
+  /* border: 1px solid black; */
+  margin-top: 1rem;
+  width: 100%;
+}
+.main-content {
+  /* border: 1px solid black; */
+  /* margin-top: 2rem; */
+
+  display: flex;
+  flex-direction: column;
+  min-width: 90vw !important;
+}
+.col-md-12 {
+  margin-top: 2rem;
+  /* border: 1px solid black; */
+}
 @media (max-width: 786px) {
   .linear-chart {
-    min-width: 100%;
+    min-width: 90%;
   }
   .pie-chart {
     min-width: 100%;
   }
   .mobile-chart {
-    width: 90%;
+    width: 100%;
     margin: auto;
+  }
+  .mobile-chart-2 {
+    background-color: white;
+    margin-top: -1.5rem;
+  }
+  .chart-anggaran {
+    min-width: 49%;
+  }
+  .table-chart {
+    min-width: 49%;
   }
 }
 </style>

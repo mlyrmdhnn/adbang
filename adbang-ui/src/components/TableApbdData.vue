@@ -56,7 +56,6 @@ defineProps({
 }
 .card-content {
   margin-top: 2rem;
-  /* border: 1px solid green; */
   justify-content: center;
   align-items: center;
   display: flex;

@@ -517,6 +517,24 @@ table th {
   /* border: 1px solid green; */
   width: 49%;
 }
+.app-page-title {
+  /* border: 1px solid black; */
+  margin-top: 1rem;
+  width: 100%;
+}
+.main-content {
+  /* border: 1px solid black; */
+  /* margin-top: 2rem; */
+  /* height: 18rem; */
+  display: flex;
+  flex-direction: column;
+  min-width: 90vw !important;
+}
+.col-md-12 {
+  margin-top: 2rem;
+  /* border: 1px solid black; */
+  /* width: 100%; */
+}
 @media (min-width: 768px) {
   .chart-container {
     flex-direction: row;
