@@ -7,10 +7,12 @@
 </template>
 <style scoped>
 .footer {
+  /* border: 1px solid blue; */
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 3rem;
+  transform: translateY(100%);
   width: 100%;
   padding: 0 2rem;
   background-color: rgb(238, 238, 238);

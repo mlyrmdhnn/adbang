@@ -151,8 +151,8 @@ import { ref, onMounted, watch, nextTick } from 'vue'
 import { useQuery } from '@tanstack/vue-query'
 import axios from 'axios'
 
-const selectedProgram = ref('')
-const dinas = ref('')
+const selectedProgram = ref(0)
+const dinas = ref('DINAS PENDIDIKAN')
 
 const fetchData = async () => {
   const response = await axios.get(
@@ -167,18 +167,10 @@ const fetchData = async () => {
   return response.data
 }
 
-const { data, isLoading, error } = useQuery({
+const { data } = useQuery({
   queryKey: ['programs', dinas],
   queryFn: fetchData,
 })
-
-watch(selectedProgram, (val) => {
-  console.log('Program yg di pillih adalah ', val)
-})
-watch(dinas, (val) => {
-  console.log(`Dinas yg di pilih adalah ${val}`)
-})
-const selectEl = ref(null)
 </script>
 <template>
   <ContentTemplate>
@@ -188,13 +180,13 @@ const selectEl = ref(null)
         <div class="row">
           <div class="col-md-6">
             <select v-model="dinas" type="select" name="dinas_id" class="form-control" required="">
+              <!-- <option v-for="d in dinasDanKecamatan" :value="d" :key="d">{{ d }}</option> -->
               <option v-for="d in dinasDanKecamatan" :value="d" :key="d">{{ d }}</option>
             </select>
           </div>
           <div class="col-md-6">
             <div class="input-group select2-bootstrap-append">
               <select
-                ref="selectEl"
                 v-model="selectedProgram"
                 name="activeProgram"
                 id="activeProgram"
@@ -220,15 +212,8 @@ const selectEl = ref(null)
               <th rowspan="2" class="text-center" style="width: 70px">Edit</th>
             </tr>
           </thead>
-          <tbody v-if="!selectedProgram && !dinas">
-            <tr class="keg" style="background-color: #e9ecef">
-              <td class="text">-</td>
-              <td class="text" colspan="1" style="font-weight: 600">Data belum dipilih</td>
-              <td class="text-center">-</td>
-              <td class="text-center">-</td>
-            </tr>
-          </tbody>
-          <tbody v-else>
+
+          <tbody>
             <tr
               v-for="(kegiatan, i) in data?.data[selectedProgram]?.kegiatan"
               :key="i"
@@ -244,19 +229,6 @@ const selectEl = ref(null)
                 </button>
               </td>
             </tr>
-
-            <!-- <tr class="sub">
-              <form action="#" method="post" onsubmit="" autocomplete="off"></form>
-              <td class="text">2.2.2.2</td>
-              <td class="text">tes2</td>
-
-              <td class="text-center" id="pengeluaran5344">0</td>
-              <td style="text-align: center">
-                <button class="btn-info btn-sm btn">
-                  <i class="fa fa-save"></i>
-                </button>
-              </td>
-            </tr> -->
           </tbody>
         </table>
       </div>
@@ -266,7 +238,7 @@ const selectEl = ref(null)
 <style scoped>
 .col-md-6 {
   background-color: white;
-  /* margin-bottom: -2.2rem; */
+
   display: flex;
   max-width: 100% !important;
   align-items: center;

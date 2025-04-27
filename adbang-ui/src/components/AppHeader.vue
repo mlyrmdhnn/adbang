@@ -14,13 +14,14 @@ const handleClick = () => {
     <section class="house"><i @click="handleClick" class="bi bi-house-fill"></i></section>
     <section class="text">
       <span class="text-2"
-        >{{ text }} <span style="color: blue">{{ textBlue }}</span></span
+        >{{ text }} <span style="color: blue; font-weight: 601">{{ textBlue }}</span></span
       >
     </section>
   </section>
 </template>
 <style scoped>
 .content-header {
+  margin-top: 3.7rem;
   width: 100%;
   margin-bottom: 2rem;
   min-width: 80vw;

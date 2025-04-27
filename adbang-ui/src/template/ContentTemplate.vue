@@ -1,6 +1,4 @@
-<script setup>
-import NavAndSide from '@/components/NavAndSide.vue'
-</script>
+<script setup></script>
 <template>
   <NavAndSide></NavAndSide>
   <div class="content">
@@ -13,11 +11,10 @@ import NavAndSide from '@/components/NavAndSide.vue'
 <style scoped>
 .content {
   background:
-    url('/public/image/gedung.png') top / 100vw 80vh,
+    url('/public/image/gedung.png') top / 100vw 100vh,
     rgba(255, 255, 255, 0.6);
   background-blend-mode: lighten;
-  margin-top: 3rem;
-  /* border: 1px solid black; */
+
   margin-left: 3.75rem;
   background-position: bottom;
   display: flex;
@@ -27,9 +24,10 @@ import NavAndSide from '@/components/NavAndSide.vue'
 }
 .main-content {
   margin-top: 2rem;
-  /* border: 1px solid red; */
+
   display: flex;
   flex-direction: column;
+
   min-width: 90vw !important;
   align-items: center;
 }

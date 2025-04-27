@@ -518,14 +518,11 @@ table th {
   width: 49%;
 }
 .app-page-title {
-  /* border: 1px solid black; */
-  margin-top: 1rem;
+  transform: translateY(3rem);
+  display: flex;
   width: 100%;
 }
 .main-content {
-  /* border: 1px solid black; */
-  /* margin-top: 2rem; */
-  /* height: 18rem; */
   display: flex;
   flex-direction: column;
   min-width: 90vw !important;

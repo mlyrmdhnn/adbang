@@ -569,21 +569,28 @@ import TableHomeBelanja from '@/components/TableHomeBelanja.vue'
 .anggaran-chart {
   width: 90%;
 }
-.app-page-title {
-  /* border: 1px solid black; */
+/* .app-page-title {
   margin-top: 1rem;
   width: 100%;
 }
 .main-content {
-  /* border: 1px solid black; */
-  /* margin-top: 2rem; */
-
+  display: flex;
+  flex-direction: column;
+  min-width: 90vw !important;
+} */
+.app-page-title {
+  transform: translateY(3rem);
+  display: flex;
+  width: 100%;
+}
+.main-content {
   display: flex;
   flex-direction: column;
   min-width: 90vw !important;
 }
+
 .col-md-12 {
-  margin-top: 2rem;
+  margin-top: 1rem;
   /* border: 1px solid black; */
 }
 @media (max-width: 786px) {

@@ -1,6 +1,7 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, computed } from 'vue'
 import { RouterLink } from 'vue-router'
+import { useWindowSize } from '@vueuse/core'
 
 const menus = ref([
   {
@@ -50,50 +51,38 @@ const menus = ref([
   },
 ])
 
+const { width } = useWindowSize()
+
+const isMobile = computed(() => width.value <= 768)
+const isTablet = computed(() => width.value > 768 && width.value <= 1023)
+
 const isSidebarExpanded = ref(false)
 const activeDropdown = ref(null)
-const isMobile = ref(window.innerWidth <= 768)
 
 const toggleDropdown = (index) => {
   activeDropdown.value = activeDropdown.value === index ? null : index
 }
 
 const toggleSidebar = () => {
-  if (isMobile.value) {
+  // bisa combine aja
+  if (isMobile.value || isTablet.value) {
     isSidebarExpanded.value = !isSidebarExpanded.value
   }
 }
-
-const updateScreenSize = () => {
-  isMobile.value = window.innerWidth <= 768
-  if (isMobile.value) {
-    isSidebarExpanded.value = false
-  }
-}
-
-onMounted(() => {
-  window.addEventListener('resize', updateScreenSize)
-})
-
-onUnmounted(() => {
-  window.removeEventListener('resize', updateScreenSize)
-})
 </script>
 
 <template>
   <!-- Navbar -->
   <nav class="navbar">
     <button @click="toggleSidebar" class="hamburger">☰</button>
-    <section class="name">
-      <span class="person-name">Mulya</span><span class="role">Admin</span>
-    </section>
+    <section class="name"><span>Mulya</span><span>Admin</span></section>
   </nav>
 
   <!-- Sidebar -->
   <aside
-    :class="['sidebar', { expanded: isSidebarExpanded, mobile: isMobile }]"
-    @mouseover="!isMobile && (isSidebarExpanded = true)"
-    @mouseleave="!isMobile && (isSidebarExpanded = false)"
+    :class="['sidebar', { expanded: isSidebarExpanded, mobile: isMobile || isTablet }]"
+    @mouseover="!(isMobile || isTablet) && (isSidebarExpanded = true)"
+    @mouseleave="!(isMobile || isTablet) && (isSidebarExpanded = false)"
   >
     <ul class="menu">
       <li v-for="(menu, index) in menus" :key="index">
@@ -114,20 +103,8 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
-.name {
-  /* border: 1px solid black; */
-  text-align: left;
-  display: flex;
-  /* color: black; */
-  flex-direction: column;
-}
-.role {
-  color: gray;
-  font-size: 110%;
-}
-.person-name {
-  font-weight: 600;
-  color: rgb(70, 70, 70);
+aside {
+  transform: translateY(3rem);
 }
 .menuIcon {
   transform: translateY(0rem);
@@ -222,29 +199,22 @@ onUnmounted(() => {
 }
 
 .menu-header {
-  /* border: 1px solid blue; */
   display: flex;
   align-items: center;
-  gap: 10px;
-  /* justify-content: space-between; */
-  padding: 15px;
-  font-size: 1.01rem;
+  padding: 10px 15px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .menu-header:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 5px;
+  background-color: #e2dede;
 }
 
 /* ✅ ANIMASI DROPDOWN */
 .dropdown-enter-active,
 .dropdown-leave-active {
-  transition:
-    opacity 0.3s ease,
-    transform 0.3s ease;
+  transition: all 0.3s ease;
 }
-
 .dropdown-enter-from,
 .dropdown-leave-to {
   opacity: 0;
@@ -253,22 +223,25 @@ onUnmounted(() => {
 
 /* Submenu */
 .submenu {
-  list-style: none;
   padding-left: 20px;
-  overflow: hidden;
+  list-style: none;
+  margin: 5px 0;
 }
 
 .submenu li {
-  padding: 10px;
+  padding: 8px 0;
 }
 
 .submenu li a {
+  color: #444;
   text-decoration: none;
-  color: rgb(61, 55, 55);
+  display: block;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
 }
-
 .submenu li a:hover {
-  text-decoration: underline;
+  background-color: #ddd;
 }
 
 /* ✅ Mobile: Hide icon on hover */
@@ -281,5 +254,13 @@ onUnmounted(() => {
   .menu-header:hover i {
     display: none;
   }
+}
+.name {
+  margin-left: auto;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 0.9rem;
 }
 </style>

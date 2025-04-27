@@ -17,7 +17,6 @@ const toggleDropdown = (index) => {
     <div class="app-page-title">
       <div class="page-title-wrapper">
         <div class="page-title-heading">
-          <!--  icon-gradient bg-mean-fruit -->
           <div class="page-title-icon"><i class="fa fa-home"></i></div>
           <div>
             Dashboard
@@ -32,10 +31,10 @@ const toggleDropdown = (index) => {
         title="Laporan APBD"
         iconClass="fa fa-fw fa-file icon-gradient"
         :items="[
-          { text: 'Master Data', link: '/adbang/apbd/data' },
-          { text: 'Mengisi Laporan', link: '/adbang/apbd/isi' },
-          { text: 'Laporan Grafik', link: '/adbang/apbd/graph' },
-          { text: 'Laporan Bulanan', link: '/adbang/apbd/report' },
+          { text: 'Master Data', link: '/apbd/data' },
+          { text: 'Mengisi Laporan', link: '/apbd/isi' },
+          { text: 'Laporan Grafik', link: '/apbd/graph' },
+          { text: 'Laporan Bulanan', link: '/apbd/report' },
         ]"
         :isOpen="activeDropdown === 0"
         @toggle="toggleDropdown(0)"
@@ -45,8 +44,8 @@ const toggleDropdown = (index) => {
         title="LKPJ"
         iconClass="fa fa-fw fa-file-excel icon-gradient"
         :items="[
-          { text: 'Kebijakan Strategis', link: '/adbang/lkpj/kebijakan' },
-          { text: 'Tindak Lanjut', link: '/adbang/lkpj/tindaklanjut' },
+          { text: 'Kebijakan Strategis', link: '/lkpj/kebijakan' },
+          { text: 'Tindak Lanjut', link: '/lkpj/tindaklanjut' },
         ]"
         :isOpen="activeDropdown === 1"
         @toggle="toggleDropdown(1)"
@@ -56,8 +55,8 @@ const toggleDropdown = (index) => {
         title="Data Kepegawaian"
         iconClass="fa fa-fw fa-users icon-gradient"
         :items="[
-          { text: 'Data ASN', link: '/asn' },
-          { text: 'Data Non ASN', link: '/non-asn' },
+          { text: 'Data ASN', link: '/data/dataasn' },
+          { text: 'Data Non ASN', link: '/data/datanonasn' },
         ]"
         :isOpen="activeDropdown === 2"
         @toggle="toggleDropdown(2)"
@@ -67,8 +66,8 @@ const toggleDropdown = (index) => {
         title="Prestasi & Penghargaan"
         iconClass="fa fa-fw fa-image icon-gradient"
         :items="[
-          { text: 'Data Prestasi', link: '/adbang/capkin/prestasi' },
-          { text: 'Data Penghargaan', link: '/adbang/capkin/penghargaan' },
+          { text: 'Data Prestasi', link: '/prestasi/data-prestasi' },
+          { text: 'Data Penghargaan', link: '/prestasi/data-penghargaan' },
         ]"
         :isOpen="activeDropdown === 3"
         @toggle="toggleDropdown(3)"
@@ -113,12 +112,12 @@ const toggleDropdown = (index) => {
 </template>
 <style scoped>
 .app-page-title {
-  margin-top: 1rem;
+  transform: translateY(3rem);
+  display: flex;
   width: 100%;
 }
 .main-content {
-  /* border: 1px solid black; */
-  /* margin-top: 2rem; */
+  margin-top: 0rem;
   height: 18rem;
   display: flex;
   flex-direction: column;
@@ -127,29 +126,9 @@ const toggleDropdown = (index) => {
 .col-md-12 {
   margin-top: 2rem;
 }
-/* @media (max-width: 786px) {
-  .main-content {
-    border: 1px solid green;
-    height: max-content;
-  }
-  .col-md-12 {
-    margin-top: 2rem;
-  }
-  .card-body {
-    border: 1px solid black;
-    overflow: auto;
-    height: min-content;
-  }
-} */
-/* @media (max-width: 767px) {
-  .main-content {
-    border: 1px solid green;
-    height: max-content;
-  }
-} */
+
 @media (max-width: 767px) {
   .main-content {
-    /* border: 1px solid green; */
     height: max-content;
   }
   .app-page-title {

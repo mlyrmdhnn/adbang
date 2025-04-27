@@ -8,6 +8,7 @@ import ContentTemplate from '@/template/ContentTemplate.vue'
 import TableApbdData from '@/components/TableApbdData.vue'
 import dinasDanKecamatan from '@/utils/dinasKecamatan'
 import subKegiatan from '@/utils/subKegiatan'
+import AppHeader from '@/components/AppHeader.vue'
 
 const linkName = ref([
   'Indikator Subkegiatan',
@@ -27,6 +28,7 @@ const handleClick = () => {
 <template>
   <NavAndSide></NavAndSide>
   <ContentTemplate>
+    <AppHeader text="/Laporan APBD / Master Data /" textBlue="indikator (SUB)"></AppHeader>
     <form action="" method="post">
       <div class="card">
         <div class="card-header">
