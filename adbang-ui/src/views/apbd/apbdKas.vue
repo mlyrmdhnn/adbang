@@ -147,7 +147,7 @@ import '@/assets/min.css'
 import '@/assets/my.css'
 import '@/assets/utils.css'
 
-import { ref, onMounted, watch, nextTick } from 'vue'
+import { ref } from 'vue'
 import { useQuery } from '@tanstack/vue-query'
 import axios from 'axios'
 
@@ -197,7 +197,7 @@ const { data } = useQuery({
                   {{ program.kode }} {{ program.nama }}
                 </option>
               </select>
-              <div class="input-group-append"></div>
+              <!-- <div class="input-group-append"></div> -->
             </div>
           </div>
         </div>
@@ -220,9 +220,21 @@ const { data } = useQuery({
               class="keg"
               style="background-color: #e9ecef"
             >
-              <td class="text">{{ kegiatan.kode }}</td>
-              <td class="text" colspan="1" style="font-weight: 600">{{ kegiatan.nama }}</td>
-              <td class="text-center">0</td>
+              <td class="text fw-bold" style="background-color: #e9ecef">{{ kegiatan.kode }}</td>
+              <td
+                class="text fw-bold"
+                colspan="1"
+                style="font-weight: 600; background-color: #e9ecef"
+              >
+                {{ kegiatan.nama }}
+              </td>
+              <td class="text-center" style="background-color: #e9ecef"></td>
+              <td class="text-center" style="background-color: #e9ecef"></td>
+            </tr>
+            <tr class="keg">
+              <td class="text">Goks</td>
+              <td class="text">goks</td>
+              <td class="text-center">goks</td>
               <td class="text-center">
                 <button class="btn-info btn-sm btn">
                   <i class="fa fa-save"></i>

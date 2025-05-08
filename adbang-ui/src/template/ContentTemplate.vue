@@ -9,6 +9,7 @@
   </div>
 </template>
 <style scoped>
+/* /public/image/gedung.png */
 .content {
   background:
     url('/public/image/gedung.png') top / 100vw 100vh,
