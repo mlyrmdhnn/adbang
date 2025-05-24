@@ -1,16 +1,35 @@
-Untuk Login:
-usr = Mulya
-psw = Gataulupa234
+# tes
 
-dependencies:
-  "datatables.net": "^2.2.2",
-    "datatables.net-bs5": "^2.2.2",
-    "datatables.net-dt": "^2.2.2",
-    "highcharts": "^12.1.2",
-    "highcharts-accessibility": "^0.1.7",
-    "highcharts-exporting": "^0.1.7",
-    "highcharts-vue": "^2.0.1",
-    "jquery": "^3.7.1",
-    "select2": "^4.1.0-rc.0",
-    "vue": "^3.5.13",
-    "vue3-highcharts": "^0.1.3"
+This template should help get you started developing with Vue 3 in Vite.
+
+## Recommended IDE Setup
+
+[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+
+## Customize configuration
+
+See [Vite Configuration Reference](https://vite.dev/config/).
+
+## Project Setup
+
+```sh
+npm install
+```
+
+### Compile and Hot-Reload for Development
+
+```sh
+npm run dev
+```
+
+### Compile and Minify for Production
+
+```sh
+npm run build
+```
+
+### Lint with [ESLint](https://eslint.org/)
+
+```sh
+npm run lint
+```
