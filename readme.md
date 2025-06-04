@@ -1,10 +1,8 @@
-# ad
-
-This template should help get you started developing with Vue 3 in Vite.
+# adbang
 
 ## Recommended IDE Setup
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+[VSCode](https://code.visualstudio.com/) + [Vue](https://vuejs.org/) + [vite](https://vite.dev/) (and disable Vetur).
 
 ## Customize configuration
 
@@ -28,8 +26,8 @@ npm run dev
 npm run build
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+<!-- ### Lint with [ESLint](https://eslint.org/)
 
 ```sh
 npm run lint
-```
+``` -->
