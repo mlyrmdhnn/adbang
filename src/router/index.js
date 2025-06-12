@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
-// Dashboard
+
+import LoginPage from '@/views/LoginPage.vue'
 import Dashboard from '@/views/Dashboard/Dashboard.vue'
 import Belanja from '@/views/Dashboard/Belanja.vue'
 import Pendapatan from '@/views/Dashboard/Pendapatan.vue'
-// APBD
 import Data from '@/views/apbd/Data.vue'
 import Kas from '@/views/apbd/Kas.vue'
 import Isi from '@/views/apbd/Isi.vue'
@@ -19,6 +19,8 @@ import Achievement from '@/views/Capkin/Achievement.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+    // Login page ROute
+    { component: LoginPage, path: '/', name: 'halaman login' },
     // Dashboard Routes
     { component: Dashboard, path: '/home/dashboard', name: 'halaman dashboard' },
     { component: Belanja, path: '/home/belanja', name: 'halaman dashboard belanka' },

@@ -1,0 +1,32 @@
+<template>
+  <div
+    ref="targetEl"
+    :class="{
+      'bg-cover bg-center': isTall,
+      'bg-contain bg-no-repeat': !isTall
+    }"
+    class="w-full h-full bg-[url('/path/to/bg.jpg')]"
+  >
+    <!-- Konten -->
+  </div>
+</template>
+
+<script setup>
+import { ref, onMounted, nextTick } from 'vue'
+
+const targetEl = ref(null)
+const isTall = ref(false)
+
+const checkHeight = () => {
+  const elHeight = targetEl.value?.offsetHeight || 0
+  const windowHeight = window.innerHeight
+
+  isTall.value = elHeight > windowHeight
+}
+
+onMounted(async () => {
+  await nextTick()
+  checkHeight()
+  window.addEventListener('resize', checkHeight)
+})
+</script>
