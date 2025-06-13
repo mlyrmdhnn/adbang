@@ -1,10 +1,13 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup>
+import BgTemplate from '@/template/BgTemplate.vue';
 import ContentTemplate from '@/template/ContentTemplate.vue';
 
 </script>
 <template>
   <ContentTemplate>
-    <h1>Halaman APBD Isi</h1>
+    <BgTemplate>
+
+    </BgTemplate>
   </ContentTemplate>
 </template>

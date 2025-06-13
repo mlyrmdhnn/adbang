@@ -29,13 +29,23 @@ const buttonClick = () => {
     isClick.value = !isClick.value
   }, 100)
 }
+const data = [
+  {
+    id: 1,
+    indikator: 'Jumlah Dokumen Perencanaan Perangkat Daerah',
+    satuan: 'dokumen',
+    target: 5,
+    tipe: 'akumulatif',
+    status: 'aktif',
+  },
+]
 </script>
 <template>
 
   <!-- popup  -->
 
   <ContentTemplate>
-    <BgTemplate class="h-full bg-cover bg-center">
+    <BgTemplate class=" bg-cover bg-center">
       <HeaderPage icon="fa fa-home" head-item="Laporan APBD" item="Master Data" coloring="Indikator (Sub)"></HeaderPage>
       <!-- start input card -->
       <div class="bg-white w-full py-5 mt-5 rounded">
@@ -88,7 +98,7 @@ const buttonClick = () => {
       <!-- end input card -->
 
       <!-- start indikator card -->
-      <div class="bg-white w-full py-5 rounded mt-5">
+      <div class="bg-white w-full py-5 rounded mt-5 mb-20">
         <div class="px-5">
           <div class="grid grid-cols-1 md:flex md:justify-between">
             <div class="text-center text-[15px] md:text-[13px] font-bold text-gray-600">
@@ -103,6 +113,45 @@ const buttonClick = () => {
           </div>
         </div>
         <hr class="mt-5 border-neutral-200">
+        <div class="px-4">
+          <div class="overflow-auto rounded">
+            <table class="min-w-full table-auto text-sm border border-gray-300">
+              <thead class="bg-gray-100 text-gray-700 text-xs">
+                <tr>
+                  <th class="border px-2 py-1">No</th>
+                  <th class="border px-2 py-1">Indikator</th>
+                  <th class="border px-2 py-1">Satuan</th>
+                  <th class="border px-2 py-1">Target Kinerja (K)</th>
+                  <th class="border px-2 py-1">Tipe</th>
+                  <th class="border px-2 py-1">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(item, index) in data" :key="item.id" :class="index % 2 === 0 ? 'bg-white' : 'bg-gray-50'">
+                  <td class="border px-2 py-1 text-center">{{ index + 1 }}</td>
+                  <td class="border px-2 py-1">{{ item.indikator }}</td>
+                  <td class="border px-2 py-1 text-center">{{ item.satuan }}</td>
+                  <td class="border px-2 py-1 text-center">{{ item.target }}</td>
+                  <td class="border px-2 py-1 text-center">{{ item.tipe }}</td>
+                  <td class="border px-2 py-1 text-center">{{ item.status }}</td>
+                </tr>
+                <tr v-if="data.length === 0">
+                  <td colspan="6" class="text-center text-gray-400 py-4">Data tidak tersedia</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Pagination Fake -->
+          <div class="flex items-center justify-between text-xs text-gray-600 mt-2">
+            <span>Showing 1 to {{ data.length }} of {{ data.length }} entries</span>
+            <div class="flex items-center space-x-2">
+              <button class="text-blue-600 hover:underline">Back</button>
+              <button class="border px-2 py-1 rounded bg-blue-100 text-blue-700 font-bold">1</button>
+              <button class="text-blue-600 hover:underline">Next</button>
+            </div>
+          </div>
+        </div>
       </div>
       <!-- end indikator card -->
     </BgTemplate>

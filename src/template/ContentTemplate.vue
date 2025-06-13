@@ -74,8 +74,6 @@ const toggleList = (index) => {
 }
 
 const sideClick = () => {
-  const sidebar = document.querySelector('.side-click')
-  sidebar.classList.toggle('hidden')
   hambActive.value = !hambActive.value
 }
 
@@ -139,17 +137,16 @@ const gearRotate = () => {
   <!-- header end -->
 
   <!-- mobile side start -->
-  <div :class="[
-    'absolute top-16 -left-0 w-48 md:w-60 side-click transition-all duration-300',
+  <!-- <div :class="[
+    'fixed top-16 -left-0 w-48 md:w-60 side-click transition-all duration-300',
     hambActive ? 'translate-x-0 lg:hidden' : '-translate-x-full'
   ]">
     <template v-for="(key, i) in sideContent" :key="i">
       <ul>
-        <div class="flex items-center w-full bg-neutral-200 cursor-pointer px-3 py-2" @click="toggleList(i)">
+        <div class="flex items-center w-full h-full bg-neutral-200 cursor-pointer px-3 py-2" @click="toggleList(i)">
           <i :class="key.icon + ' mr-2'"></i>
           <span>{{ key.headList }}</span>
         </div>
-        <!-- transition submenu -->
         <transition enter-active-class="transition-all duration-500 ease-out"
           leave-active-class="transition-all duration-300 ease-in" enter-from-class="max-h-0 opacity-0"
           enter-to-class="max-h-40 opacity-100" leave-from-class="max-h-40 opacity-100"
@@ -164,7 +161,34 @@ const gearRotate = () => {
         </transition>
       </ul>
     </template>
+</div> -->
+  <div :class="[
+    'lg:hidden fixed top-16 w-60 h-screen p-2 z-[1001] bg-slate-200 transition-all duration-300 ease-in-out',
+    hambActive ? 'left-0' : '-left-60'
+  ]">
+    <template v-for="(key, i) in sideContent" :key="i">
+      <ul>
+        <div class="flex items-center w-full h-full mt-5  text-gray-700 bg-slate-200 cursor-pointer px-3 py-2"
+          @click="toggleList(i)">
+          <span class="text-[20px]"><i :class="key.icon + ' mr-2'"></i></span>
+          <span>{{ key.headList }}</span>
+        </div>
+
+        <transition enter-active-class="transition-all duration-500 ease-out"
+          leave-active-class="transition-all duration-300 ease-in" enter-from-class="max-h-0 opacity-0"
+          enter-to-class="max-h-40 opacity-100" leave-from-class="max-h-40 opacity-100"
+          leave-to-class="max-h-0 opacity-0">
+          <div v-if="key.isOpen" class="overflow-hidden">
+            <li v-for="(j, jIndex) in key.list" :key="jIndex" class="pl-6 text-gray-700 cursor-pointer">
+              <span>-</span>
+              <router-link class="text-gray-600" :to="j.route">{{ j.listMenu }}</router-link>
+            </li>
+          </div>
+        </transition>
+      </ul>
+    </template>
   </div>
+
   <!-- mobile side end -->
 
 
@@ -216,7 +240,7 @@ const gearRotate = () => {
   <!-- desktop side end -->
 
   <!-- hero section start -->
-  <div class="w-full left-0 h-full absolute top-0 -z-[10000] lg:pt-15 lg:pl-20 pb-14 lg:pb-12 pt-15">
+  <div class="w-full left-0 h-full absolute top-0 -z-[10000] lg:pt-15 lg:pl-20 pb-14 mb-96 lg:pb-12 pt-15">
     <!-- <slot></slot> -->
 
     <slot></slot>

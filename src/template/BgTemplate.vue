@@ -1,6 +1,6 @@
 <!-- BgTemplate.vue -->
 <template>
-  <div ref="targetEl" :class="[isTall ? 'py-5 px-5 md:px-5 bg-cover' : 'py-5 md:px-5 px-3 h-full bg-cover']"
+  <div ref="targetEl" :class="[isTall ? 'py-5 px-5 md:px-5 bg-cover' : 'py-5 md:px-5 px-3 bg-cover']"
     style="background-image: url('https://plus.unsplash.com/premium_photo-1690571200236-0f9098fc6ca9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8c3BhY2V8ZW58MHx8MHx8fDA%3D');">
     <slot></slot>
   </div>
