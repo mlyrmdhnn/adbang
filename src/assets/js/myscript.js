@@ -1,4 +1,5 @@
-/* eslint-disable no-undef */
+import $ from 'jquery'
+
 $.fn.pauseInput = function () {
   $('input').attr('disabled', 'disabled')
   $('textarea').attr('disabled', 'disabled')

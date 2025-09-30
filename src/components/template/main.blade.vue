@@ -62,7 +62,7 @@ $(document).on('select2:open', () => {
             class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav"><span
               class="btn-icon-wrapper"><i class="fa fa-ellipsis-v fa-w-6"></i></span></button></span></div>
       <div class="app-header__content">
-        <nav-blade :key="$route.fullPath" />
+        <nav-blade />
       </div>
     </div>
 
