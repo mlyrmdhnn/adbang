@@ -1,0 +1,53 @@
+#myTable tr td {
+  font-size: 9pt;
+}
+
+.text-left > tbody > tr > td {
+  text-align: left !important;
+}
+
+a.badge:hover {
+  cursor: pointer;
+}
+
+#tb_search > tbody > tr > td,
+#tb_list > tbody > tr > td,
+.table-striped > thead > tr > th {
+  font-size: 9pt;
+  /* padding: 5px; */
+  text-align: center;
+  min-width: 30px;
+  padding-right: 0px;
+  vertical-align: middle;
+}
+
+table.dataTable thead > tr > th.sorting_asc,
+table.dataTable thead > tr > th.sorting_desc,
+table.dataTable thead > tr > th.sorting,
+table.dataTable thead > tr > td.sorting_asc,
+table.dataTable thead > tr > td.sorting_desc,
+table.dataTable thead > tr > td.sorting {
+  padding-right: 0px;
+}
+
+#datatable > tbody > tr > td,
+#datatable > thead > tr > th {
+  font-size: 9pt;
+  padding: 5px;
+  text-align: center;
+  vertical-align: middle;
+  min-width: 30px;
+}
+
+#datatable_info {
+  font-size: 9pt;
+}
+
+input[type='text']:disabled {
+  cursor: context-menu !important;
+}
+
+.form-control[disabled],
+fieldset[disabled] .form-control {
+  cursor: context-menu !important;
+}
