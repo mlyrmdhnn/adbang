@@ -33,6 +33,18 @@ function initSidebar() {
     $menu.find('a').filter((_, el) => {
       return $(el).text().trim() === 'LKPJ';
     }).parent('li').addClass('mm-active').children('ul').addClass('mm-show');
+  } else if (store.path.startsWith('/data')) {
+    $menu.find('a').filter((_, el) => {
+      return $(el).text().trim() === 'Data Kepegawaian'
+    }).parent('li').addClass('mm-active').children('ul').addClass('mm-show');
+  } else if (store.path.startsWith('/capkin')) {
+    $menu.find('a').filter((_, el) => {
+      return $(el).text().trim() === 'Prestasi Penghargaan'
+    }).parent('li').addClass('mm-active').children('ul').addClass('mm-show');
+  } else if (store.path.startsWith('/kas')) {
+    $menu.find('a').filter((_, el) => {
+      return $(el).text().trim() === 'Laporan APBD';
+    }).parent('li').addClass('mm-active').children('ul').addClass('mm-show');
   }
   // Tambahkan kondisi lain sesuai menu Anda
 
@@ -47,7 +59,7 @@ watch(() => route.path, (newPath) => {
   store.pathNow(newPath);
   setTimeout(() => {
     initSidebar();
-  }, 1);
+  }, 0);
 });
 </script>
 
